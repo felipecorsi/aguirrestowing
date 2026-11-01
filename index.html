@@ -38,6 +38,7 @@
   --on-navy-2:#b6c0cd;
   --navy-line:rgba(255,255,255,.14);
   --star:#f2a93b;
+  --danger:#c9341f;
   --wheel:var(--surface);
   --font-display:"Barlow Semi Condensed","Barlow","Arial Narrow",system-ui,sans-serif;
   --font-body:"Barlow",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -48,17 +49,18 @@
     --bg:#0e1218;--surface:#151b24;--ink:#e9ecf0;--ink-2:#a2abb7;--line:#283140;
     --accent:#f27f31;--accent-hover:#f9924c;
     --navy:#0a1322;--navy-2:#121e32;--on-navy:#f2f4f7;--on-navy-2:#aeb8c6;--navy-line:rgba(255,255,255,.12);
-    color-scheme:dark;
+    --danger:#ff8a7a;color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#0e1218;--surface:#151b24;--ink:#e9ecf0;--ink-2:#a2abb7;--line:#283140;
   --accent:#f27f31;--accent-hover:#f9924c;
   --navy:#0a1322;--navy-2:#121e32;--on-navy:#f2f4f7;--on-navy-2:#aeb8c6;--navy-line:rgba(255,255,255,.12);
-  color-scheme:dark;
+  --danger:#ff8a7a;color-scheme:dark;
 }
 
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -88,7 +90,7 @@ img{max-width:100%}
 .btn-outline:hover{border-color:var(--ink-2)}
 .btn-lg{font-size:1.1rem;padding:1.05rem 1.5rem}
 .cta-row{display:flex;flex-wrap:wrap;gap:.75rem}
-@media (max-width:479px){.cta-row .btn{flex:1 1 100%}}
+@media (max-width:479px){.cta-row .btn{flex:1 1 100%}.cta-row .half{flex:1 1 calc(50% - .375rem)}}
 
 /* Header */
 .site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
@@ -112,6 +114,7 @@ img{max-width:100%}
 .eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem}
 .hero h1{margin-bottom:1.1rem}
 .hero .lede{font-size:1.15rem;line-height:1.5;color:var(--on-navy-2);max-width:52ch;margin-bottom:0}
+.hero .cta-row{margin-top:1.6rem}
 .proof{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:14px;padding:1.3rem 1.5rem 1rem;min-width:0}
 .proof h2{font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-2);margin-bottom:.5rem}
 .proof li{display:flex;gap:.65rem;align-items:flex-start;padding:.7rem 0;border-top:1px solid var(--navy-line);font-weight:500;line-height:1.4}
@@ -139,6 +142,40 @@ img{max-width:100%}
 .cols h2{margin-bottom:.8rem}
 .cols .lede{font-size:1.08rem;color:var(--ink-2);line-height:1.5}
 .cols .btn{margin-top:1.5rem}
+.cols .cta-row{margin-top:1.5rem}.cols .cta-row .btn{margin-top:0}
+
+/* Request a quote */
+.qform{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:1.4rem;display:grid;gap:1.35rem;min-width:0}
+@media (min-width:720px){.qform{padding:1.75rem}}
+.qform .btn{margin-top:0}
+.qf{min-width:0}
+.qf-label{display:flex;align-items:baseline;gap:.5rem;font-weight:600;font-size:1.02rem;margin-bottom:.6rem}
+.qf-label .opt{font-weight:500;font-size:.85rem;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font:inherit;font-weight:600;font-size:.95rem;line-height:1;padding:.7rem .95rem;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.chip:hover{border-color:var(--ink-2)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.field{display:block;width:100%;font:inherit;font-size:1rem;line-height:1.3;padding:.85rem .95rem;border:1.5px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink);-webkit-appearance:none;appearance:none}
+.field::placeholder{color:var(--ink-2);opacity:.8}
+.field:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
+.locate{width:100%;font-weight:600}
+.locate.ok{border-color:var(--accent);color:var(--accent)}
+.locate:disabled{opacity:.7;cursor:progress}
+.loc-status{font-size:.92rem;color:var(--ink-2);margin:.5rem 0 0}
+.loc-status:empty{display:none}
+#where{margin-top:.75rem}
+.loc-status.ok{color:var(--ink)}
+.qf-error{color:var(--danger);font-weight:600;font-size:.95rem}
+.send{width:100%}
+.qf-note{font-size:.9rem;color:var(--ink-2);line-height:1.45;margin-top:-.5rem}
+.qf-note a{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.qf-fallback{border-top:1px solid var(--line);padding-top:1.25rem;display:grid;gap:.75rem}
+.qf-fallback p{color:var(--ink-2);font-size:.95rem}
+.qf-fallback strong{color:var(--ink)}
+.qf-fallback pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:.95rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1rem}
+.qf-fallback .btn{justify-self:start}
+.quote-alt{margin-top:1rem;color:var(--ink-2)}
+.quote-alt a{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 
 /* Photos */
 .gallery{display:grid;grid-template-columns:1fr 1fr;gap:.9rem .6rem}
@@ -216,9 +253,10 @@ img{max-width:100%}
 @media (min-width:960px){.contact .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:5rem;align-items:center}}
 .contact h2{font-size:clamp(2.1rem,4.2vw,3.2rem);margin-bottom:.9rem}
 .contact .lede{color:var(--on-navy-2);font-size:1.12rem;max-width:46ch;margin-bottom:0}
-.phone-big{display:inline-block;font-family:var(--font-display);font-weight:800;font-size:clamp(2.3rem,6vw,3.8rem);line-height:1;letter-spacing:.01em;margin-bottom:1.5rem;font-variant-numeric:tabular-nums;border-bottom:4px solid var(--accent);padding-bottom:.12em}
+.phone-big{display:inline-block;margin-top:1.4rem;font-family:var(--font-display);font-weight:800;font-size:clamp(2.3rem,6vw,3.8rem);line-height:1;letter-spacing:.01em;margin-bottom:1.5rem;font-variant-numeric:tabular-nums;border-bottom:4px solid var(--accent);padding-bottom:.12em}
 .later{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--navy-line);color:var(--on-navy-2);max-width:52ch;font-size:1rem}
 .later strong{color:var(--on-navy);font-weight:600}
+.later a{color:var(--on-navy);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .details{margin:0;display:grid}
 .details div{padding:1rem 0;border-top:1px solid var(--navy-line)}
 .details div:last-child{border-bottom:1px solid var(--navy-line)}
@@ -234,9 +272,13 @@ img{max-width:100%}
 @media (min-width:720px){.site-footer .wrap{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap}}
 .site-footer .brand{font-size:1.15rem;color:var(--ink)}
 .site-footer .brand .mark{width:38px;height:19px}
+@media (max-width:959px){.site-footer{padding-bottom:calc(5.75rem + env(safe-area-inset-bottom,0px))}}
 
 /* Fixed call bar (phones and tablets) */
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--accent);color:var(--on-accent);font-weight:700;font-size:1.1rem;line-height:1;padding-top:1.05rem;padding-bottom:calc(1.05rem + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-shadow:0 -6px 20px rgba(0,0,0,.18)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:var(--navy);box-shadow:0 -6px 20px rgba(0,0,0,.18);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:1.05rem;line-height:1;padding:1.05rem .75rem;white-space:nowrap;min-width:0}
+.callbar .cb-call{flex:1.35;background:var(--accent);color:var(--on-accent)}
+.callbar .cb-quote{color:var(--on-navy)}
 .callbar .icon{width:1.2em;height:1.2em}
 @media (min-width:960px){.callbar{display:none}}
 </style>
@@ -246,6 +288,7 @@ img{max-width:100%}
   "@type": "AutomotiveBusiness",
   "name": "Aguirre's Towing and Recovery",
   "url": "https://aguirrestowing.com/",
+  "telephone": "+19713290201",
   "image": "https://aguirrestowing.com/photos/photo-1.jpg",
   "description": "24-hour towing and roadside help in Sherwood, Oregon, from the family behind Aguirre's Mobile Auto Repair. One call, one flat price, truck on the way.",
   "address": {
@@ -276,6 +319,7 @@ img{max-width:100%}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5.5 3h3.2l1.8 4.6-2.2 1.6a12 12 0 0 0 6.5 6.5l1.6-2.2L21 15.3v3.2A2.5 2.5 0 0 1 18.5 21 15.5 15.5 0 0 1 3 5.5 2.5 2.5 0 0 1 5.5 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v9a1.5 1.5 0 0 1-1.5 1.5H9l-5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.85 6 6.55.8-4.8 4.5 1.25 6.5L12 17.4l-5.85 3.2 1.25-6.5-4.8-4.5 6.55-.8z" fill="currentColor"/></symbol>
   <symbol id="i-google" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></symbol>
@@ -293,6 +337,7 @@ img{max-width:100%}
   <div class="wrap">
     <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg><span>Aguirre's Towing<span class="brand-tail"> and Recovery</span></span></a>
     <nav class="nav" aria-label="Sections">
+      <a href="#quote">Quote</a>
       <a href="#photos">Photos</a>
       <a href="#reviews">Reviews</a>
       <a href="#services">Services</a>
@@ -300,6 +345,7 @@ img{max-width:100%}
       <a href="#area">Area</a>
       <a href="#faq">Questions</a>
     </nav>
+    <a class="btn btn-accent header-call" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="num">(971) 329-0201</span><span class="short">Call</span></a>
   </div>
 </header>
 
@@ -311,6 +357,11 @@ img{max-width:100%}
       <p class="eyebrow">Sherwood, Oregon · 24-hour towing and recovery</p>
       <h1>One call.<br>One flat price.<br>Truck on the way.</h1>
       <p class="lede">Aguirre's Towing and Recovery runs flatbed tows and roadside help around Sherwood, Tualatin, Tigard, Newberg and Wilsonville. We're the same family as Aguirre's Mobile Auto Repair, so if the car can be fixed, we can fix it too. You get the price and an ETA on the phone before the truck moves.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent btn-lg" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call (971) 329-0201</a>
+        <a class="btn btn-ghost btn-lg half" href="sms:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Text us</a>
+        <a class="btn btn-ghost btn-lg half" href="#quote">Get a quote</a>
+      </div>
     </div>
     <aside class="proof" aria-label="What you can count on">
       <h2>What you can count on</h2>
@@ -326,6 +377,63 @@ img{max-width:100%}
 </section>
 <div class="stripe" aria-hidden="true"></div>
 
+<section class="section band" id="quote">
+  <div class="wrap cols">
+    <div>
+      <p class="eyebrow">Request a quote</p>
+      <h2>Tell us where you are and what you need.</h2>
+      <p class="lede">Pick what you need, share your location, and send. It goes straight to our dispatch phone as a text, and we text back a flat price and an ETA, day or night.</p>
+      <p class="quote-alt">Rather talk? <a href="tel:+19713290201">Call (971) 329-0201</a>.</p>
+    </div>
+    <form class="qform" id="qform" novalidate>
+      <div class="qf" role="group" aria-labelledby="ql-need">
+        <p class="qf-label" id="ql-need">What do you need?</p>
+        <div class="chips" data-name="need">
+          <button type="button" class="chip" aria-pressed="false" data-value="Tow">Tow</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Jump start">Jump start</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Lockout">Lockout</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Flat tire">Flat tire</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Winch-out">Winch-out</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Accident">Accident</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Not sure">Not sure</button>
+        </div>
+      </div>
+      <div class="qf" role="group" aria-labelledby="ql-vehicle">
+        <p class="qf-label" id="ql-vehicle">What are you driving?</p>
+        <div class="chips" data-name="vehicle">
+          <button type="button" class="chip" aria-pressed="false" data-value="Car">Car</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="SUV">SUV</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Pickup">Pickup</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Van">Van</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Motorcycle">Motorcycle</button>
+          <button type="button" class="chip" aria-pressed="false" data-value="Other">Other</button>
+        </div>
+      </div>
+      <div class="qf">
+        <p class="qf-label" id="ql-where">Where are you?</p>
+        <button type="button" class="btn btn-outline locate" id="locate"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Use my location</span></button>
+        <p class="loc-status" id="locstatus" aria-live="polite"></p>
+        <input class="field" id="where" type="text" aria-labelledby="ql-where" placeholder="Or type an address or cross streets" autocomplete="street-address" enterkeyhint="done">
+      </div>
+      <div class="qf" id="dest-wrap" hidden>
+        <label class="qf-label" for="dest">Where is it going? <span class="opt">optional</span></label>
+        <input class="field" id="dest" type="text" placeholder="Shop name or address, or “not sure yet”" enterkeyhint="done">
+      </div>
+      <div class="qf">
+        <label class="qf-label" for="name">Your name <span class="opt">optional</span></label>
+        <input class="field" id="name" type="text" autocomplete="name" placeholder="So the driver knows who to ask for" enterkeyhint="done">
+      </div>
+      <p class="qf-error" id="qerror" role="alert" hidden></p>
+      <button type="submit" class="btn btn-accent btn-lg send"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Send as a text</button>
+      <p class="qf-note">Opens your messages app with the details filled in. Nothing goes out until you tap send. Or call <a href="tel:+19713290201">(971) 329-0201</a>.</p>
+      <div class="qf-fallback" id="qfallback" hidden>
+        <p><strong>Messages didn't open?</strong> Text this to (971) 329-0201 from your phone, or call and read it off.</p>
+        <pre id="qpreview"></pre>
+        <button type="button" class="btn btn-outline" id="copy">Copy message</button>
+      </div>
+    </form>
+  </div>
+</section>
 
 <section class="section" id="photos">
   <div class="wrap">
@@ -391,12 +499,16 @@ img{max-width:100%}
       <p class="eyebrow">Pricing</p>
       <h2>Straight answers on price.</h2>
       <p class="lede">Towing has a reputation for surprise bills. We don't work that way. Here is how a quote works with us.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="#quote">Get a quote</a>
+        <a class="btn btn-outline" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call (971) 329-0201</a>
+      </div>
     </div>
     <ul class="points">
       <li><strong>Quoted before we roll.</strong> Tell us where you are, where the vehicle is going, and what you drive. You get the full price on the phone, not a range.</li>
       <li><strong>No add-ons at drop-off.</strong> Hook-up and mileage are in the quote. Nothing gets tacked on when the truck arrives or when the car comes off the bed.</li>
       <li><strong>Roadside plan or insurance?</strong> Most plans reimburse a tow, a jump, or a lockout. Ask when you call, and we'll give you the itemized receipt they need.</li>
-      <li><strong>Pay when it's done.</strong> Card or cash at the scene, with a printed or texted receipt.</li>
+      <li><strong>Pay when it's done.</strong> Card or cash at the scene, or a secure payment link we text you. Receipt printed or texted.</li>
     </ul>
   </div>
 </section>
@@ -478,8 +590,14 @@ img{max-width:100%}
   <div class="wrap">
     <div>
       <p class="eyebrow">Contact</p>
-      <h2>Sherwood's towing crew, day and night.</h2>
-      <p class="lede">Flatbed tows, roadside help, and our own mechanics when the car needs more than a ride.</p>
+      <h2>Stuck right now? Call.</h2>
+      <p class="lede">We answer day or night. If you can't talk, text works too.</p>
+      <a class="phone-big" href="tel:+19713290201">(971) 329-0201</a>
+      <div class="cta-row">
+        <a class="btn btn-accent btn-lg" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
+        <a class="btn btn-ghost btn-lg" href="sms:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Send a text</a>
+      </div>
+      <p class="later"><strong>Need a tow later, not now?</strong> <a href="#quote">Send a quote request</a> with the pickup, the drop-off, the vehicle, and when. We reply with a flat price and set a time.</p>
     </div>
     <dl class="details">
       <div><dt>Hours</dt><dd>24 hours, every day, including holidays</dd></div>
@@ -499,6 +617,84 @@ img{max-width:100%}
   </div>
 </footer>
 
+<div class="callbar">
+  <a class="cb-call" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call (971) 329-0201</a>
+  <a class="cb-quote" href="#quote">Get a quote</a>
+</div>
+
+<script>
+(function(){
+  var PHONE='+19713290201';
+  var form=document.getElementById('qform');
+  if(!form) return;
+  var $=function(id){return document.getElementById(id)};
+  var locate=$('locate'),locStatus=$('locstatus'),whereIn=$('where'),destWrap=$('dest-wrap'),destIn=$('dest'),nameIn=$('name'),err=$('qerror'),fallback=$('qfallback'),preview=$('qpreview'),copyBtn=$('copy');
+  var state={need:'',vehicle:'',geo:null};
+
+  function setError(msg){err.textContent=msg||'';err.hidden=!msg;}
+  function setStatus(msg,ok){locStatus.textContent=msg;locStatus.classList.toggle('ok',!!ok);}
+
+  form.querySelectorAll('.chips').forEach(function(group){
+    group.addEventListener('click',function(e){
+      var b=e.target.closest('.chip');if(!b)return;
+      var wasOn=b.getAttribute('aria-pressed')==='true';
+      group.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed','false')});
+      if(!wasOn)b.setAttribute('aria-pressed','true');
+      state[group.dataset.name]=wasOn?'':b.dataset.value;
+      if(group.dataset.name==='need')destWrap.hidden=!(state.need==='Tow'||state.need==='Accident');
+      setError('');
+    });
+  });
+
+  locate.addEventListener('click',function(){
+    if(!navigator.geolocation){setStatus('Location isn\u2019t available on this device. Type it in below.');return;}
+    locate.disabled=true;setStatus('Finding you\u2026');
+    navigator.geolocation.getCurrentPosition(function(pos){
+      var c=pos.coords;
+      state.geo={lat:c.latitude.toFixed(5),lng:c.longitude.toFixed(5),acc:Math.round(c.accuracy||0)};
+      locate.disabled=false;locate.classList.add('ok');locate.querySelector('span').textContent='Location found';
+      setStatus('Pinned to within about '+(state.geo.acc||50)+' m. Add a landmark below if it helps.',true);
+      setError('');
+    },function(e){
+      locate.disabled=false;
+      setStatus(e&&e.code===1?'Location is blocked for this site. Type where you are below.':'Couldn\u2019t get a fix. Type where you are below.');
+    },{enableHighAccuracy:true,timeout:12000,maximumAge:30000});
+  });
+
+  function compose(){
+    var lines=['Quote request from aguirrestowing.com','Need: '+state.need];
+    if(state.vehicle)lines.push('Vehicle: '+state.vehicle);
+    if(state.geo)lines.push('Pin: https://maps.google.com/?q='+state.geo.lat+','+state.geo.lng);
+    var where=whereIn.value.trim();if(where)lines.push('Where: '+where);
+    var dest=destIn.value.trim();if(!destWrap.hidden&&dest)lines.push('Going to: '+dest);
+    var name=nameIn.value.trim();if(name)lines.push('Name: '+name);
+    return lines.join('\n');
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!state.need){setError('Pick what you need first.');return;}
+    if(!state.geo&&!whereIn.value.trim()){setError('Tap \u201cUse my location\u201d or type where you are.');return;}
+    setError('');
+    var body=compose();
+    preview.textContent=body;
+    var mobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform));
+    if(mobile){
+      window.location.href='sms:'+PHONE+'?&body='+encodeURIComponent(body);
+      setTimeout(function(){fallback.hidden=false;},1500);
+    }else{
+      fallback.hidden=false;
+      fallback.scrollIntoView({block:'nearest',behavior:'smooth'});
+    }
+  });
+
+  copyBtn.addEventListener('click',function(){
+    var done=function(){copyBtn.textContent='Copied';setTimeout(function(){copyBtn.textContent='Copy message'},1800);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(preview.textContent).then(done,function(){});}
+    else{var r=document.createRange();r.selectNodeContents(preview);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);try{document.execCommand('copy');done();}catch(x){}}
+  });
+})();
+</script>
 
 </body>
 </html>
