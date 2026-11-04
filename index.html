@@ -192,6 +192,9 @@ img{max-width:100%}
 .source{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;color:var(--ink)}
 .source svg{width:22px;height:22px;flex:none}
 .platform p{color:var(--ink-2)}
+.platform-embed:has(iframe){padding:0;overflow:hidden;background:#fff}
+.platform-embed iframe{margin:-1px;width:calc(100% + 2px)!important;max-width:none!important;min-width:0!important}
+.platform-embed a{text-decoration:underline;text-underline-offset:3px}
 .platform .btn{align-self:flex-start;margin-top:.35rem}
 .platform .soon{display:inline-block;margin-top:.35rem;font-size:.9rem;font-weight:600;color:var(--ink-2);border:1px dashed var(--line);border-radius:999px;padding:.4rem .8rem}
 .reviews{display:grid;gap:1.25rem}
@@ -456,13 +459,11 @@ img{max-width:100%}
   <div class="wrap">
     <div class="section-head">
       <h2>Reviews</h2>
-      <p>We're new on Yelp, and Google is next. Real customer reviews will show here, each linked to the original.</p>
+      <p>Real customer reviews, each linked to the original.</p>
     </div>
     <div class="platforms">
-      <div class="platform">
-        <span class="source"><svg aria-hidden="true"><use href="#i-yelp"/></svg>Yelp</span>
-        <p>Aguirre's Towing and Recovery is listed on Yelp. No reviews yet. Had a tow with us? Yours would be the first, and it helps the next person stuck on 99W.</p>
-        <a class="btn btn-outline" href="https://www.yelp.com/writeareview/biz/M7hjiJvkFnnrdsOzQZLmFg?return_url=%2Fbiz%2FM7hjiJvkFnnrdsOzQZLmFg&review_origin=biz-details-war-button" target="_blank" rel="noopener">Review us on Yelp</a>
+      <div class="platform platform-embed">
+        <span class="yelp-review" data-review-id="MC6dchWLoVSlrC5YvQdEnQ" data-hostname="www.yelp.com">Read <a href="https://www.yelp.com/user_details?userid=Zdl_C3Fg1YxGTY6istZEfA" rel="nofollow noopener">John B.</a>'s <a href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=MC6dchWLoVSlrC5YvQdEnQ" rel="nofollow noopener">review</a> of <a href="https://www.yelp.com/biz/M7hjiJvkFnnrdsOzQZLmFg" rel="nofollow noopener">Aguirres towing and recovery</a> on <a href="https://www.yelp.com" rel="nofollow noopener">Yelp</a><script src="https://www.yelp.com/embed/widgets.js" type="text/javascript" async></script></span>
       </div>
       <div class="platform">
         <span class="source"><svg aria-hidden="true"><use href="#i-google"/></svg>Google</span>
