@@ -193,8 +193,12 @@ img{max-width:100%}
 .source svg{width:22px;height:22px;flex:none}
 .platform p{color:var(--ink-2)}
 .platform-embed:has(iframe){padding:0;overflow:hidden;background:#fff}
-.platform-embed iframe{margin:-1px;width:calc(100% + 2px)!important;max-width:none!important;min-width:0!important}
+.platform-embed iframe{margin:-1px;width:calc(100% + 2px)!important;max-width:none!important;min-width:0!important;min-height:200px}
 .platform-embed a{text-decoration:underline;text-underline-offset:3px}
+span.yelp-review{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem}
+.yr-quote{font-size:1.1rem;line-height:1.45;color:var(--ink)}
+.yr-by{color:var(--ink-2)}
+.yr-by strong{color:var(--ink);font-weight:600}
 .platform .btn{align-self:flex-start;margin-top:.35rem}
 .platform .soon{display:inline-block;margin-top:.35rem;font-size:.9rem;font-weight:600;color:var(--ink-2);border:1px dashed var(--line);border-radius:999px;padding:.4rem .8rem}
 .reviews{display:grid;gap:1.25rem}
@@ -463,7 +467,14 @@ img{max-width:100%}
     </div>
     <div class="platforms">
       <div class="platform platform-embed">
-        <span class="yelp-review" data-review-id="MC6dchWLoVSlrC5YvQdEnQ" data-hostname="www.yelp.com">Read <a href="https://www.yelp.com/user_details?userid=Zdl_C3Fg1YxGTY6istZEfA" rel="nofollow noopener">John B.</a>'s <a href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=MC6dchWLoVSlrC5YvQdEnQ" rel="nofollow noopener">review</a> of <a href="https://www.yelp.com/biz/M7hjiJvkFnnrdsOzQZLmFg" rel="nofollow noopener">Aguirres towing and recovery</a> on <a href="https://www.yelp.com" rel="nofollow noopener">Yelp</a><script src="https://www.yelp.com/embed/widgets.js" type="text/javascript" async></script></span>
+        <span class="yelp-review" data-review-id="MC6dchWLoVSlrC5YvQdEnQ" data-hostname="www.yelp.com">
+          <span class="source"><svg aria-hidden="true"><use href="#i-yelp"/></svg>Yelp</span>
+          <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span>
+          <span class="yr-quote">&ldquo;Great work and price! Highly recommend&rdquo;</span>
+          <span class="yr-by"><strong>John B.</strong>, Sherwood, OR. Nov 3, 2026, via Yelp.</span>
+          <a href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=MC6dchWLoVSlrC5YvQdEnQ" rel="nofollow noopener">Read the full review on Yelp</a>
+          <script src="https://www.yelp.com/embed/widgets.js" type="text/javascript" async></script>
+        </span>
       </div>
       <div class="platform">
         <span class="source"><svg aria-hidden="true"><use href="#i-google"/></svg>Google</span>
