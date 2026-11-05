@@ -314,7 +314,7 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
   defaults:'2026-05-30',
   person_profiles:'identified_only',
   persistence:'memory',
-  autocapture:false,
+  autocapture:true,
   rageclick:false,
   capture_dead_clicks:false,
   capture_heatmaps:false,
@@ -436,7 +436,7 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
       <p class="qf-error" id="qerror" role="alert" hidden></p>
       <button type="submit" class="btn btn-accent btn-lg send"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Send as a text</button>
       <p class="qf-note">Opens your messages app with the details filled in. Nothing goes out until you tap send. Or call <a href="tel:+19713290201">(971) 329-0201</a>.</p>
-      <div class="qf-fallback" id="qfallback" hidden>
+      <div class="qf-fallback" id="qfallback" data-ph-no-autocapture hidden>
         <p><strong>Messages didn't open?</strong> Text this to (971) 329-0201 from your phone, or call and read it off.</p>
         <pre id="qpreview"></pre>
         <button type="button" class="btn btn-outline" id="copy">Copy message</button>
@@ -631,7 +631,24 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
 <script>
 (function(){
   var PHONE='+19713290201';
-  function track(name){try{posthog.capture(name,{},{send_instantly:true});}catch(x){}}
+  function track(name){try{
+    if(posthog.__loaded){posthog.capture(name,{},{send_instantly:true});return;}
+    navigator.sendBeacon('https://us.i.posthog.com/i/v0/e/',new Blob([JSON.stringify({
+      api_key:'phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',
+      event:name,
+      distinct_id:'early-'+Date.now()+'-'+Math.random().toString(36).slice(2),
+      properties:{
+        $process_person_profile:false,
+        $current_url:location.href,
+        $host:location.host,
+        $pathname:location.pathname,
+        $referrer:document.referrer||'$direct',
+        $raw_user_agent:navigator.userAgent,
+        $device_type:/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop',
+        before_load:true
+      }
+    })],{type:'text/plain'}));
+  }catch(x){}}
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href^="tel:"],a[href^="sms:"]');
     if(a)track(a.getAttribute('href').indexOf('tel:')===0?'Call tapped':'Text tapped');
