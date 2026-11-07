@@ -4,162 +4,240 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aguirre's Towing and Recovery | 24-Hour Towing in Sherwood, OR</title>
-<meta name="description" content="24-hour towing and roadside help in Sherwood, Oregon, from the family behind Aguirre's Mobile Auto Repair. One call, one flat price, truck on the way.">
+<meta name="description" content="24-hour towing and roadside help in Sherwood, Oregon, plus mechanical repair, auto body and paint at our own shop. One call, one flat price.">
 <link rel="canonical" href="https://aguirrestowing.com/">
-<meta name="theme-color" content="#0f1b2d">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#070b13">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aguirre's Towing and Recovery">
 <meta property="og:title" content="Aguirre's Towing and Recovery | 24-Hour Towing in Sherwood, OR">
-<meta property="og:description" content="24-hour towing and roadside help in Sherwood, Oregon. One call, one flat price, truck on the way.">
+<meta property="og:description" content="24-hour towing and roadside help in Sherwood, Oregon, plus repair, auto body and paint at our own shop. One call, one flat price.">
 <meta property="og:url" content="https://aguirrestowing.com/">
-<meta property="og:image" content="https://aguirrestowing.com/photos/photo-1.jpg">
+<meta property="og:image" content="https://aguirrestowing.com/photos/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="geo.region" content="US-OR">
 <meta name="geo.placename" content="Sherwood">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e8650f'/%3E%3Cpath d='M10 40V24a3 3 0 0 1 3-3h12l7 9h22v10' fill='none' stroke='%23fff' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M10 40h44' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='43' r='5.5' fill='%23e8650f' stroke='%23fff' stroke-width='4'/%3E%3Ccircle cx='45' cy='43' r='5.5' fill='%23e8650f' stroke='%23fff' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: one column, 1120px max. Navy hero with a proof panel, a three-step strip, photo proof, then short scannable bands (reviews, services, pricing, area, safety, questions) and a navy contact block. Phone first, with a fixed call bar. */
+/* Layout: night header and hero over a real truck photo, a red stat strip, then card sections in one 1160px column. Night bands carry pricing, the photos and the contact block. The divider is DOT reflective tape, red and white at 11 to 7, the same tape that runs along the flatbed. Phone first, with a fixed call bar. One dark theme only: the page does not follow the device light or dark setting. */
 :root{
-  --bg:#f3f5f8;
-  --surface:#ffffff;
-  --ink:#131a24;
-  --ink-2:#55606d;
-  --line:#d8dde4;
-  --accent:#e8650f;
-  --accent-hover:#cc5709;
-  --on-accent:#ffffff;
-  --navy:#0f1b2d;
-  --navy-2:#16263d;
-  --on-navy:#f2f4f7;
-  --on-navy-2:#b6c0cd;
-  --navy-line:rgba(255,255,255,.14);
-  --star:#f2a93b;
-  --danger:#c9341f;
+  color-scheme:dark;
+  --bg:#0a0e15;
+  --surface:#131a26;
+  --ink:#e9edf2;
+  --ink-2:#a3adba;
+  --line:#283244;
+  --night:#070b13;
+  --night-2:#111a2a;
+  --on-night:#f4f6f9;
+  --on-night-2:#aeb8c6;
+  --night-line:rgba(255,255,255,.13);
+  --red:#b3141c;
+  --on-red:#ffffff;
+  --accent:#ffb400;
+  --accent-hover:#ffc840;
+  --on-accent:#16110a;
+  --accent-ink:#ffc24a;
+  --star:#f2a516;
+  --ok:#3ccf78;
+  --ok-ink:#4ad988;
+  --danger:#ff8a7a;
+  --focus:#2f7bff;
+  --tape-red:#c5202a;
+  --tape-white:#efefec;
   --wheel:var(--surface);
-  --font-display:"Barlow Semi Condensed","Barlow","Arial Narrow",system-ui,sans-serif;
+  --font-display:"Barlow Condensed","Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
   --font-body:"Barlow",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   --radius:10px;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0e1218;--surface:#151b24;--ink:#e9ecf0;--ink-2:#a2abb7;--line:#283140;
-    --accent:#f27f31;--accent-hover:#f9924c;
-    --navy:#0a1322;--navy-2:#121e32;--on-navy:#f2f4f7;--on-navy-2:#aeb8c6;--navy-line:rgba(255,255,255,.12);
-    --danger:#ff8a7a;color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0e1218;--surface:#151b24;--ink:#e9ecf0;--ink-2:#a2abb7;--line:#283140;
-  --accent:#f27f31;--accent-hover:#f9924c;
-  --navy:#0a1322;--navy-2:#121e32;--on-navy:#f2f4f7;--on-navy-2:#aeb8c6;--navy-line:rgba(255,255,255,.12);
-  --danger:#ff8a7a;color-scheme:dark;
 }
 
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
-h1,h2,h3{font-family:var(--font-display);line-height:1.05;margin:0}
-h1{font-weight:800;font-size:clamp(2.5rem,5.4vw,4.2rem);letter-spacing:-.01em}
-h2{font-weight:700;font-size:clamp(1.85rem,3.4vw,2.5rem);letter-spacing:-.005em;text-wrap:balance}
-h3{font-weight:700;font-size:1.2rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--night)}
+h1,h2,h3{margin:0}
+h1,h2{font-family:var(--font-display);font-weight:800;text-transform:uppercase;text-wrap:balance}
+h1{font-size:clamp(2.75rem,10.5vw,5.25rem);line-height:.93;letter-spacing:.005em}
+h2{font-size:clamp(2.05rem,5.2vw,3.1rem);line-height:.98;letter-spacing:.008em}
+h3{font-family:var(--font-body);font-weight:700;font-size:1.08rem;line-height:1.3}
 p{margin:0}
 ul,ol{margin:0;padding:0;list-style:none}
 a{color:inherit;text-decoration:none}
-svg,img{display:block}
-img{max-width:100%}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+svg,img,video{display:block}
+img,video{max-width:100%}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 @media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
 .icon{width:1em;height:1em;flex:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;font-size:1rem;line-height:1;padding:.85rem 1.25rem;border-radius:var(--radius);border:1.5px solid transparent;white-space:nowrap;transition:background-color .15s,border-color .15s,color .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:inherit;font-weight:700;font-size:1rem;line-height:1;padding:.9rem 1.25rem;border-radius:var(--radius);border:1.5px solid transparent;white-space:nowrap;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
 .btn .icon{width:1.1em;height:1.1em}
 .btn-accent{background:var(--accent);color:var(--on-accent)}
 .btn-accent:hover{background:var(--accent-hover)}
-.btn-ghost{border-color:var(--navy-line);color:var(--on-navy)}
-.btn-ghost:hover{border-color:var(--on-navy-2);background:rgba(255,255,255,.06)}
+.btn-ghost{border-color:color-mix(in srgb,var(--on-night) 34%,transparent);color:var(--on-night);background:color-mix(in srgb,var(--night) 35%,transparent)}
+.btn-ghost:hover{border-color:var(--on-night);background:color-mix(in srgb,var(--on-night) 9%,transparent)}
 .btn-outline{border-color:var(--line);color:var(--ink);background:var(--surface)}
 .btn-outline:hover{border-color:var(--ink-2)}
-.btn-lg{font-size:1.1rem;padding:1.05rem 1.5rem}
+.btn-lg{font-size:1.1rem;padding:1.08rem 1.5rem}
 .cta-row{display:flex;flex-wrap:wrap;gap:.75rem}
 @media (max-width:479px){.cta-row .btn{flex:1 1 100%}.cta-row .half{flex:1 1 calc(50% - .375rem)}}
 
-/* Header */
-.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
-.site-header .wrap{display:flex;align-items:center;gap:1.25rem;height:68px}
-.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:700;font-size:1.35rem;min-width:0;white-space:nowrap}
-.brand .mark{width:44px;height:22px;color:var(--accent)}
-.brand-tail{display:none}
-@media (min-width:600px){.brand-tail{display:inline}}
-.nav{display:none;margin-left:auto;gap:1.5rem;font-weight:500;color:var(--ink-2)}
-.nav a:hover{color:var(--ink)}
+/* Slanted red label, cut like the bar under the name in our logo */
+.eyebrow{display:inline-block;background:var(--red);color:var(--on-red);font-family:var(--font-display);font-weight:700;font-size:.98rem;line-height:1;letter-spacing:.16em;text-transform:uppercase;padding:.4rem .95rem .36rem;transform:skewX(-14deg);margin-bottom:1.05rem}
+@media (max-width:479px){.eyebrow{font-size:.84rem;letter-spacing:.12em}}
+.tape{height:8px;background:repeating-linear-gradient(90deg,var(--tape-red) 0 66px,var(--tape-white) 66px 108px)}
+
+/* Top line and header */
+.topbar{background:var(--night-2);color:var(--on-night-2);font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.topbar .wrap{display:flex;justify-content:center;gap:.4rem 1.6rem;flex-wrap:wrap;padding-block:.5rem}
+.topbar .open{display:inline-flex;align-items:center;gap:.5rem;color:var(--on-night)}
+.dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--ok);flex:none}
+.topbar .where{display:none}
+@media (min-width:860px){.topbar .where{display:inline}}
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--night);color:var(--on-night);border-bottom:1px solid var(--night-line)}
+.site-header .wrap{display:flex;align-items:center;gap:1.5rem;height:66px}
+@media (min-width:720px){.site-header .wrap{height:76px}}
+.brand{display:block;flex:none}
+.brand img{height:44px;width:auto}
+@media (min-width:720px){.brand img{height:52px}}
+.nav{display:none;margin-left:auto;gap:1.4rem;font-weight:600;font-size:.95rem;color:var(--on-night-2)}
+.nav a:hover{color:var(--on-night)}
 .header-call{margin-left:auto}
 .header-call .num{display:none}
 @media (min-width:480px){.header-call .num{display:inline}.header-call .short{display:none}}
-@media (min-width:960px){.nav{display:flex}.header-call{margin-left:0}}
+@media (min-width:1080px){.nav{display:flex}.header-call{margin-left:0}}
 
 /* Hero */
-.hero{background:var(--navy);color:var(--on-navy);padding-block:3.5rem 3.25rem}
-@media (min-width:960px){.hero{padding-block:5.5rem 5rem}}
-.hero .wrap{display:grid;gap:2rem}
-@media (min-width:960px){.hero .wrap{grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:4.5rem;align-items:center}}
-.eyebrow{font-size:.82rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem}
+.hero{position:relative;isolation:isolate;background:var(--night);color:var(--on-night)}
+.hero-bg{display:block;position:relative;height:clamp(210px,60vw,330px)}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:60% 45%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--night) 30%,transparent) 0%,transparent 28%,color-mix(in srgb,var(--night) 72%,transparent) 80%,var(--night) 100%)}
+.hero-grid{position:relative;display:grid;gap:2rem;margin-top:-3.4rem;padding-bottom:2.75rem}
 .hero h1{margin-bottom:1.1rem}
-.hero .lede{font-size:1.15rem;line-height:1.5;color:var(--on-navy-2);max-width:52ch;margin-bottom:0}
+.hero h1 span{display:block;color:var(--accent)}
+.hero h1 span span{color:inherit}
+.hero .lede{font-size:1.1rem;line-height:1.5;color:var(--on-night-2);max-width:54ch}
 .hero .cta-row{margin-top:1.6rem}
-.proof{background:var(--navy-2);border:1px solid var(--navy-line);border-radius:14px;padding:1.3rem 1.5rem 1rem;min-width:0}
-.proof h2{font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-2);margin-bottom:.5rem}
-.proof li{display:flex;gap:.65rem;align-items:flex-start;padding:.7rem 0;border-top:1px solid var(--navy-line);font-weight:500;line-height:1.4}
-.proof .icon{color:var(--accent);width:1.15em;height:1.15em;margin-top:.15em}
-.stripe{height:6px;background:repeating-linear-gradient(135deg,var(--accent) 0 14px,var(--navy) 14px 28px)}
+.trust{display:flex;flex-wrap:wrap;gap:.55rem 1.3rem;margin-top:1.5rem;font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-night-2)}
+.trust li{display:flex;align-items:center;gap:.45rem}
+.trust .icon{color:var(--accent);width:1.1em;height:1.1em}
+@media (min-width:720px){
+  .hero-bg{position:absolute;inset:0;height:auto;z-index:-1}
+  .hero-bg img{object-position:70% 62%}
+  .hero-bg::after{background:linear-gradient(180deg,transparent 62%,color-mix(in srgb,var(--night) 88%,transparent) 100%),linear-gradient(90deg,color-mix(in srgb,var(--night) 96%,transparent) 0%,color-mix(in srgb,var(--night) 90%,transparent) 38%,color-mix(in srgb,var(--night) 58%,transparent) 72%,color-mix(in srgb,var(--night) 52%,transparent) 100%)}
+  .hero-grid{margin-top:0;padding-block:4.25rem 4rem}
+}
+@media (min-width:1000px){.hero-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr);gap:4rem;align-items:center;padding-block:5.25rem 5rem}}
+.hero-card{display:grid;gap:.9rem;min-width:0;padding:.85rem;border-radius:18px;border:1px solid var(--night-line);background:color-mix(in srgb,var(--night-2) 80%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+@media (max-width:999px){.hero-card{max-width:30rem}}
+.hero-card .shot{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;background:var(--night-2)}
+.mini{display:grid;gap:.45rem;padding:0 .3rem}
+.mini blockquote{margin:0;font-size:1.02rem;font-weight:500;line-height:1.38}
+.mini .by{display:flex;align-items:center;gap:.45rem;font-size:.86rem;color:var(--on-night-2)}
+.mini:hover .by{color:var(--on-night)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.tile{border:1px solid var(--night-line);border-radius:12px;padding:.7rem .85rem .75rem;background:color-mix(in srgb,var(--on-night) 6%,transparent);min-width:0}
+.tile b{display:block;font-family:var(--font-display);font-weight:800;font-size:1.75rem;line-height:1;color:var(--accent)}
+.tile span{display:block;margin-top:.25rem;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-night-2)}
 
-/* Three steps */
-.steps-band{background:var(--surface);border-bottom:1px solid var(--line)}
-.steps{display:grid;gap:1.1rem;padding-block:1.5rem}
-@media (min-width:720px){.steps{grid-template-columns:repeat(3,1fr);gap:2rem;padding-block:1.75rem}}
-.steps li{display:flex;gap:.9rem;align-items:flex-start;min-width:0}
-.steps .num{font-family:var(--font-display);font-weight:800;font-size:1.9rem;line-height:1;color:var(--accent);flex:none;font-variant-numeric:tabular-nums}
-.steps strong{display:block;font-weight:600;font-size:1.05rem;line-height:1.3}
-.steps span{color:var(--ink-2);font-size:.95rem}
+/* Red strip */
+.stats{background:var(--red);color:var(--on-red)}
+.stats ul{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 1rem;padding-block:1.6rem}
+@media (min-width:800px){.stats ul{grid-template-columns:repeat(4,1fr);padding-block:1.9rem}}
+.stats li{text-align:center;min-width:0}
+.stats b{display:block;font-family:var(--font-display);font-weight:800;font-size:clamp(2.1rem,5vw,2.9rem);line-height:1;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.stats span{display:block;margin-top:.35rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;opacity:.92}
 
 /* Sections */
-.section{padding-block:3.25rem}
-@media (min-width:720px){.section{padding-block:4rem}}
-@media (min-width:960px){.section{padding-block:5rem}}
-.band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.section-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem;margin-bottom:2rem}
-.section-head p{color:var(--ink-2);max-width:48ch}
-.cols{display:grid;gap:2.5rem}
-@media (min-width:960px){.cols{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:5rem;align-items:start}}
-.cols h2{margin-bottom:.8rem}
-.cols .lede{font-size:1.08rem;color:var(--ink-2);line-height:1.5}
-.cols .btn{margin-top:1.5rem}
-.cols .cta-row{margin-top:1.5rem}.cols .cta-row .btn{margin-top:0}
+.section{padding-block:3.5rem}
+@media (min-width:720px){.section{padding-block:4.5rem}}
+@media (min-width:1000px){.section{padding-block:5.25rem}}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.dark{background:var(--night);color:var(--on-night)}
+.head{max-width:44rem;margin:0 auto 2.25rem;text-align:center}
+.head h2{margin-bottom:.75rem}
+.head p:not(.eyebrow){color:var(--ink-2);font-size:1.05rem}
+.dark .head p:not(.eyebrow){color:var(--on-night-2)}
+.split{display:grid;gap:2.25rem}
+@media (min-width:1000px){.split{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:4.5rem;align-items:start}}
+.split h2{margin-bottom:.9rem}
+.lede{font-size:1.08rem;line-height:1.5;color:var(--ink-2)}
+.dark .lede{color:var(--on-night-2)}
+.split .cta-row{margin-top:1.5rem}
+.note{margin-top:.9rem;font-size:.95rem;color:var(--ink-2)}
+.dark .note{color:var(--on-night-2)}
+.note a,.lede a{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.dark .note a{color:var(--on-night)}
+
+/* Services */
+.svc-grid{display:grid;gap:.8rem}
+@media (min-width:640px){.svc-grid{grid-template-columns:1fr 1fr;gap:1rem}}
+@media (min-width:1000px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+.svc{display:flex;gap:.95rem;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.15rem;min-width:0}
+@media (min-width:1000px){.svc{flex-direction:column;gap:.85rem;padding:1.35rem 1.3rem 1.45rem}}
+.ico{--wheel:color-mix(in srgb,var(--red) 10%,var(--surface));flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:11px;background:var(--wheel);color:var(--accent-ink)}
+.ico .icon{width:26px;height:26px}
+.svc h3{margin-bottom:.2rem}
+.svc p{color:var(--ink-2);font-size:.95rem;line-height:1.45}
+.shopbar{margin-top:1.1rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.7rem 1.4rem;text-align:center;background:var(--night);color:var(--on-night);border-radius:14px;padding:1.15rem 1.25rem}
+.shopbar strong{font-family:var(--font-display);font-weight:800;font-size:1.45rem;line-height:1.05;letter-spacing:.02em;text-transform:uppercase}
+.shopbar strong span{color:var(--accent)}
+
+/* Our shop */
+.feats{display:grid;gap:1.15rem}
+.feats li{display:flex;gap:.95rem;align-items:flex-start;min-width:0}
+.feats h3{margin-bottom:.15rem}
+.feats p{color:var(--ink-2);font-size:.97rem;line-height:1.45}
+.sub-head{margin:2.75rem 0 1.1rem;font-family:var(--font-display);font-weight:800;font-size:1.55rem;line-height:1;letter-spacing:.02em;text-transform:uppercase}
+.pairs{display:grid;gap:1.5rem}
+@media (min-width:820px){.pairs{grid-template-columns:1fr 1fr;gap:1.75rem 1.5rem}}
+.pair{margin:0;min-width:0}
+.pair-imgs{display:grid;grid-template-columns:1fr 1fr;gap:4px;border-radius:14px;overflow:hidden}
+.pshot{position:relative;min-width:0}
+.pshot img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--line)}
+.tag{position:absolute;left:.5rem;top:.5rem;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1;padding:.34rem .5rem .3rem;border-radius:6px;background:color-mix(in srgb,var(--night) 84%,transparent);color:var(--on-night)}
+.tag.after{background:var(--accent);color:var(--on-accent)}
+.pair figcaption{margin-top:.6rem;font-size:.95rem;line-height:1.4;color:var(--ink-2)}
+.pair figcaption strong{color:var(--ink);font-weight:700}
+
+/* Pricing */
+.ptiles{display:grid;gap:.75rem;margin-top:1.6rem}
+@media (min-width:560px){.ptiles{grid-template-columns:1fr 1fr}}
+.ptile{background:var(--night-2);border:1px solid var(--night-line);border-radius:14px;padding:1.05rem 1.15rem 1.1rem;min-width:0}
+.ptile h3{font-size:1.04rem;margin-bottom:.25rem}
+.ptile p{color:var(--on-night-2);font-size:.95rem;line-height:1.45}
+.pphoto{position:relative;margin:0;min-width:0}
+.pphoto img{width:100%;height:auto;aspect-ratio:6/7;object-fit:cover;border-radius:18px;background:var(--night-2)}
+@media (max-width:999px){.pphoto img{aspect-ratio:1/1;object-position:50% 85%}}
+.pphoto figcaption{position:absolute;left:.85rem;bottom:.85rem;max-width:calc(100% - 1.7rem);padding:.6rem .8rem;border-radius:10px;border:1px solid var(--night-line);background:color-mix(in srgb,var(--night) 86%,transparent);font-size:.9rem;font-weight:600;line-height:1.3}
 
 /* Request a quote */
-.qform{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:1.4rem;display:grid;gap:1.35rem;min-width:0}
+.qform{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.4rem;display:grid;gap:1.35rem;min-width:0}
 @media (min-width:720px){.qform{padding:1.75rem}}
-.qform .btn{margin-top:0}
 .qf{min-width:0}
 .qf-label{display:flex;align-items:baseline;gap:.5rem;font-weight:600;font-size:1.02rem;margin-bottom:.6rem}
 .qf-label .opt{font-weight:500;font-size:.85rem;color:var(--ink-2)}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem}
-.chip{font:inherit;font-weight:600;font-size:.95rem;line-height:1;padding:.7rem .95rem;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.chip{font:inherit;font-weight:600;font-size:.95rem;line-height:1;padding:.7rem .95rem;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
 .chip:hover{border-color:var(--ink-2)}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.field{display:block;width:100%;font:inherit;font-size:1rem;line-height:1.3;padding:.85rem .95rem;border:1.5px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--ink);-webkit-appearance:none;appearance:none}
+.field{display:block;width:100%;font:inherit;font-size:1rem;line-height:1.3;padding:.85rem .95rem;border:1.5px solid var(--line);border-radius:var(--radius);background:var(--bg);color:var(--ink);-webkit-appearance:none;appearance:none}
 .field::placeholder{color:var(--ink-2);opacity:.8}
-.field:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
-.locate{width:100%;font-weight:600}
-.locate.ok{border-color:var(--accent);color:var(--accent)}
+.field:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 25%,transparent)}
+.locate{width:100%;font-weight:600;background:var(--bg)}
+.locate.ok{border-color:var(--ok-ink);color:var(--ok-ink)}
 .locate:disabled{opacity:.7;cursor:progress}
 .loc-status{font-size:.92rem;color:var(--ink-2);margin:.5rem 0 0}
 .loc-status:empty{display:none}
@@ -172,109 +250,127 @@ img{max-width:100%}
 .qf-fallback{border-top:1px solid var(--line);padding-top:1.25rem;display:grid;gap:.75rem}
 .qf-fallback p{color:var(--ink-2);font-size:.95rem}
 .qf-fallback strong{color:var(--ink)}
-.qf-fallback pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:.95rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1rem}
+.qf-fallback pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:.95rem;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1rem}
 .qf-fallback .btn{justify-self:start}
-.quote-alt{margin-top:1rem;color:var(--ink-2)}
-.quote-alt a{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 
-/* Photos */
+/* Photos and clips */
 .gallery{display:grid;grid-template-columns:1fr 1fr;gap:.9rem .6rem}
-@media (min-width:560px){.gallery{gap:.9rem}.gallery figcaption{font-size:.9rem}}
-@media (min-width:900px){.gallery{grid-template-columns:repeat(3,1fr);gap:1.1rem}}
+@media (min-width:560px){.gallery{gap:1rem .9rem}}
+@media (min-width:900px){.gallery{grid-template-columns:repeat(3,1fr);gap:1.2rem 1.1rem}}
 .gallery figure{margin:0;min-width:0}
-.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;background:var(--line)}
-.gallery figcaption{font-size:.82rem;line-height:1.3;color:var(--ink-2);margin-top:.35rem}
+@media (max-width:899px){.gallery figure:nth-child(9){display:none}}
+.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;background:var(--night-2)}
+.gallery figcaption,.clip figcaption{font-size:.84rem;line-height:1.3;color:var(--on-night-2);margin-top:.4rem}
+@media (min-width:560px){.gallery figcaption,.clip figcaption{font-size:.92rem}}
+.dark .sub-head{text-align:center}
+.clips{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(200px,64%);gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem}
+@media (min-width:720px){.clips{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(3,minmax(0,250px));justify-content:center;gap:1.4rem;overflow:visible;padding-bottom:0}}
+.clip{margin:0;min-width:0;scroll-snap-align:start}
+.clip video{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;border-radius:14px;background:var(--night-2)}
 
-/* Reviews: platform cards now, review cards when real reviews exist */
+/* Reviews */
 .platforms{display:grid;gap:1.25rem}
-@media (min-width:720px){.platforms{grid-template-columns:1fr 1fr;gap:1.5rem}}
+@media (min-width:720px){.platforms{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}}
 .platforms>:only-child{grid-column:1/-1}
-.reviews{display:grid;gap:1.25rem}
-@media (min-width:900px){.reviews{grid-template-columns:repeat(3,1fr);gap:1.5rem}}
 .review{margin:0;display:flex;flex-direction:column;gap:.9rem;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:1.5rem;min-width:0}
 .review:hover{border-color:var(--ink-2)}
 .stars{display:flex;gap:2px;color:var(--star)}
 .stars .icon{width:18px;height:18px}
 .review blockquote{margin:0;flex:1;font-size:1.25rem;font-weight:500;line-height:1.35}
 .review-by{display:flex;flex-direction:column;gap:.1rem}
-.review-by strong{font-weight:600}
+.review-by strong{font-weight:700}
 .review-by span{color:var(--ink-2);font-size:.92rem}
 .review-link{display:flex;align-items:center;gap:.5rem;padding-top:.85rem;border-top:1px solid var(--line);font-weight:600;font-size:.95rem;color:var(--ink)}
-.review-link img{flex:none}
-.review:hover .review-link{color:var(--accent)}
-
-/* Services */
-.svcs{display:grid;gap:0 2.5rem}
-@media (min-width:640px){.svcs{grid-template-columns:1fr 1fr}}
-@media (min-width:900px){.svcs{grid-template-columns:repeat(3,1fr)}}
-.svc{--wheel:var(--bg);display:flex;gap:.9rem;align-items:flex-start;padding:1.15rem 0;border-top:1px solid var(--line);min-width:0}
-.svc .icon{width:28px;height:28px;color:var(--accent);margin-top:.05rem}
-.svc strong{display:block;font-weight:600;font-size:1.05rem;line-height:1.3;margin-bottom:.15rem}
-.svc span{color:var(--ink-2);font-size:.95rem;line-height:1.45}
-
-/* Pricing points */
-.points li{padding:1.05rem 0;border-top:1px solid var(--line);color:var(--ink-2)}
-.points li:last-child{border-bottom:1px solid var(--line)}
-.points strong{display:block;color:var(--ink);font-weight:600;font-size:1.06rem;margin-bottom:.15rem}
+.review-link img,.mini .by img{flex:none}
+.review:hover .review-link{color:var(--accent-ink)}
 
 /* Service area */
-.area{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.area h3{font-family:var(--font-body);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.5rem}
-.area li{padding:.4rem 0;border-top:1px solid var(--line);font-weight:500}
-.area li:last-child{border-bottom:1px solid var(--line)}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.pill{font-weight:600;font-size:.95rem;line-height:1;padding:.62rem .95rem;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.pill.home{background:var(--red);border-color:var(--red);color:var(--on-red)}
+.roads{margin-top:.9rem;text-align:center;color:var(--ink-2);font-size:.95rem}
+.locals{display:grid;gap:.9rem;margin-top:2rem}
+@media (min-width:640px){.locals{grid-template-columns:1fr 1fr;gap:1rem}}
+@media (min-width:1000px){.locals{grid-template-columns:repeat(4,1fr)}}
+.local{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.25rem 1.3rem;min-width:0}
+.local h3{margin-bottom:.35rem}
+.local p{color:var(--ink-2);font-size:.95rem;line-height:1.45}
 
 /* Safety and how to know it's us */
+.tips{display:grid;gap:.7rem;margin-top:1.6rem}
+@media (min-width:900px){.tips{grid-template-columns:repeat(3,1fr);gap:1.25rem}}
+.tips li{display:flex;gap:.6rem;align-items:flex-start;color:var(--ink-2);font-size:.97rem;line-height:1.45;min-width:0}
+.tips .icon{color:var(--accent);width:1.15em;height:1.15em;margin-top:.2em}
+.loc{display:grid;gap:1.25rem}
+@media (min-width:900px){.loc{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:1.5rem;align-items:stretch}}
+.addr{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;min-width:0}
+.addr .big{font-family:var(--font-display);font-weight:700;font-size:1.5rem;line-height:1.15;color:var(--ink)}
+.addr p{color:var(--ink-2)}
+.addr .cta-row{margin-top:auto;padding-top:.5rem}
+.map{position:relative;display:block;min-height:300px;border-radius:14px;overflow:hidden;background:var(--night-2);border:1px solid var(--line)}
+.map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.map-cta{position:absolute;right:.85rem;bottom:.85rem;display:inline-flex;align-items:center;gap:.4rem;padding:.55rem .8rem;border-radius:9px;background:var(--accent);color:var(--on-accent);font-weight:700;font-size:.92rem}
+.map:hover .map-cta{background:var(--accent-hover)}
+.yard-photos{display:grid;gap:.75rem;margin-top:1.25rem;grid-template-columns:1fr 1fr}
+@media (min-width:720px){.yard-photos{grid-template-columns:repeat(3,1fr);gap:1rem}}
+.yard-photos figure{margin:0;min-width:0}
+.yard-photos img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;background:var(--night-2)}
+.yard-photos figcaption{margin-top:.45rem;font-size:.9rem;color:var(--ink-2)}
 .twin{display:grid;gap:1.25rem}
 @media (min-width:900px){.twin{grid-template-columns:1fr 1fr;gap:1.5rem}}
-.box{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius);padding:1.4rem 1.5rem;min-width:0}
-.box h3{margin-bottom:.35rem}
+.box{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem 1.5rem;min-width:0}
+.box h3{font-size:1.15rem;margin-bottom:.35rem}
 .box p{color:var(--ink-2);font-size:.98rem;margin-bottom:.9rem}
 .box li{position:relative;padding-left:1.1rem;color:var(--ink-2);margin-bottom:.45rem;font-size:.98rem}
 .box li:last-child{margin-bottom:0}
-.box li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.box li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--red)}
 
 /* Questions */
-.faq{display:grid;gap:0 3rem;border-bottom:1px solid var(--line)}
-@media (min-width:900px){.faq{grid-template-columns:1fr 1fr}}
-.faq li{padding:1.05rem 0;border-top:1px solid var(--line);min-width:0}
-.faq h3{font-family:var(--font-body);font-size:1.05rem;font-weight:600;margin-bottom:.3rem;text-wrap:pretty}
-.faq p{color:var(--ink-2);font-size:.98rem}
+.faq{display:grid;gap:.8rem}
+@media (min-width:900px){.faq{grid-template-columns:1fr 1fr;gap:1rem}}
+.faq li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem 1.2rem;min-width:0}
+.faq h3{margin-bottom:.3rem;text-wrap:pretty}
+.faq p{color:var(--ink-2);font-size:.97rem}
 
 /* Contact */
-.contact{background:var(--navy);color:var(--on-navy);padding-block:4.5rem}
-@media (min-width:960px){.contact{padding-block:6rem}}
+.contact{background:var(--night);color:var(--on-night);padding-block:4rem}
+@media (min-width:1000px){.contact{padding-block:5.5rem}}
 .contact .wrap{display:grid;gap:2.25rem}
-@media (min-width:960px){.contact .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:5rem;align-items:center}}
-.contact h2{font-size:clamp(2.1rem,4.2vw,3.2rem);margin-bottom:.9rem}
-.contact .lede{color:var(--on-navy-2);font-size:1.12rem;max-width:46ch;margin-bottom:0}
-.phone-big{display:inline-block;margin-top:1.4rem;font-family:var(--font-display);font-weight:800;font-size:clamp(2.3rem,6vw,3.8rem);line-height:1;letter-spacing:.01em;margin-bottom:1.5rem;font-variant-numeric:tabular-nums;border-bottom:4px solid var(--accent);padding-bottom:.12em}
-.later{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--navy-line);color:var(--on-navy-2);max-width:52ch;font-size:1rem}
-.later strong{color:var(--on-navy);font-weight:600}
-.later a{color:var(--on-navy);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (min-width:1000px){.contact .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:5rem;align-items:center}}
+.contact h2{font-size:clamp(2.4rem,6vw,3.6rem);margin-bottom:.9rem}
+.contact .lede{color:var(--on-night-2);font-size:1.12rem;max-width:46ch}
+.phone-big{display:inline-block;margin:1.4rem 0 1.5rem;font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,9vw,4.2rem);line-height:1;letter-spacing:.01em;font-variant-numeric:tabular-nums;color:var(--accent)}
+.later{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--night-line);color:var(--on-night-2);max-width:52ch;font-size:1rem}
+.later strong{color:var(--on-night);font-weight:600}
+.later a{color:var(--on-night);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .details{margin:0;display:grid}
-.details div{padding:1rem 0;border-top:1px solid var(--navy-line)}
-.details div:last-child{border-bottom:1px solid var(--navy-line)}
-.details dt{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-2);margin-bottom:.3rem}
+.details div{padding:1rem 0;border-top:1px solid var(--night-line)}
+.details div:last-child{border-bottom:1px solid var(--night-line)}
+.details dt{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-night-2);margin-bottom:.3rem}
 .details dd{margin:0;font-weight:500;overflow-wrap:anywhere}
-.details .sub{display:block;color:var(--on-navy-2);font-weight:400;font-size:.95rem}
+.details .sub{display:block;color:var(--on-night-2);font-weight:400;font-size:.95rem}
 .details a:hover{text-decoration:underline}
 
 /* Footer */
-.site-footer{--wheel:var(--bg);padding-block:2.25rem calc(2.25rem + env(safe-area-inset-bottom,0px));font-size:.95rem;color:var(--ink-2)}
-@media (min-width:960px){.site-footer{padding-block:2.5rem}}
-.site-footer .wrap{display:flex;flex-direction:column;gap:.75rem}
-@media (min-width:720px){.site-footer .wrap{flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap}}
-.site-footer .brand{font-size:1.15rem;color:var(--ink)}
-.site-footer .brand .mark{width:38px;height:19px}
-@media (max-width:959px){.site-footer{padding-bottom:calc(5.75rem + env(safe-area-inset-bottom,0px))}}
+.site-footer{background:var(--night);color:var(--on-night-2);border-top:1px solid var(--night-line);font-size:.95rem;padding-block:2.5rem calc(6.25rem + env(safe-area-inset-bottom,0px))}
+@media (min-width:1000px){.site-footer{padding-block:3rem 2rem}}
+.foot{display:grid;gap:2rem}
+@media (min-width:760px){.foot{grid-template-columns:1.4fr 1fr 1fr;gap:3rem}}
+.foot img{height:74px;width:auto;margin-bottom:.9rem}
+.foot p{max-width:34ch}
+.foot h3{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-night-2);margin-bottom:.7rem}
+.foot li{margin-bottom:.4rem;color:var(--on-night)}
+.foot li a:hover{text-decoration:underline}
+.foot .hours{display:flex;align-items:center;gap:.5rem;color:var(--on-night);font-weight:600}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1.5rem;margin-top:2.25rem;padding-top:1.25rem;border-top:1px solid var(--night-line);font-size:.86rem}
 
 /* Fixed call bar (phones and tablets) */
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:var(--navy);box-shadow:0 -6px 20px rgba(0,0,0,.18);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:var(--night);border-top:1px solid var(--night-line);box-shadow:0 -6px 20px rgba(0,0,0,.22);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
 .callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;font-size:1.05rem;line-height:1;padding:1.05rem .75rem;white-space:nowrap;min-width:0}
 .callbar .cb-call{flex:1.35;background:var(--accent);color:var(--on-accent)}
-.callbar .cb-quote{color:var(--on-navy)}
+.callbar .cb-quote{color:var(--on-night)}
 .callbar .icon{width:1.2em;height:1.2em}
-@media (min-width:960px){.callbar{display:none}}
+@media (min-width:1000px){.callbar{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -283,28 +379,118 @@ img{max-width:100%}
   "name": "Aguirre's Towing and Recovery",
   "url": "https://aguirrestowing.com/",
   "telephone": "+19713290201",
-  "image": "https://aguirrestowing.com/photos/photo-1.jpg",
-  "description": "24-hour towing and roadside help in Sherwood, Oregon, from the family behind Aguirre's Mobile Auto Repair. One call, one flat price, truck on the way.",
+  "image": "https://aguirrestowing.com/photos/og.jpg",
+  "description": "24-hour towing and roadside help in Sherwood, Oregon, plus mechanical repair, auto body and paint at our own shop. One call, one flat price.",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "25400 SW Grahams Ferry Rd",
+    "postalCode": "97140",
     "addressLocality": "Sherwood",
     "addressRegion": "OR",
     "addressCountry": "US"
   },
   "areaServed": [
-    {"@type": "City", "name": "Sherwood, OR"},
-    {"@type": "City", "name": "Tualatin, OR"},
-    {"@type": "City", "name": "Tigard, OR"},
-    {"@type": "City", "name": "Newberg, OR"},
-    {"@type": "City", "name": "Wilsonville, OR"}
+    {
+      "@type": "City",
+      "name": "Sherwood, OR"
+    },
+    {
+      "@type": "City",
+      "name": "Tualatin, OR"
+    },
+    {
+      "@type": "City",
+      "name": "Tigard, OR"
+    },
+    {
+      "@type": "City",
+      "name": "Newberg, OR"
+    },
+    {
+      "@type": "City",
+      "name": "Wilsonville, OR"
+    }
   ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
     "opens": "00:00",
     "closes": "23:59"
   },
-  "sameAs": ["https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood"]
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Flatbed towing"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Accident towing"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Winch-out and recovery"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Roadside assistance"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mechanical repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Auto body repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Auto painting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Vehicle storage"
+        }
+      }
+    ]
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=45.335848,-122.788566",
+  "sameAs": [
+    "https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood"
+  ]
 }
 </script>
 <script>
@@ -334,25 +520,25 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5 9.5 17.5 19.5 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.85 6 6.55.8-4.8 4.5 1.25 6.5L12 17.4l-5.85 3.2 1.25-6.5-4.8-4.5 6.55-.8z" fill="currentColor"/></symbol>
-  <symbol id="i-mark" viewBox="0 0 48 24">
-    <path d="M6 5.5V4h6v1.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    <path d="M2 17V8a2 2 0 0 1 2-2h8.5l4 5H45v6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-    <path d="M2 17h44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-    <circle cx="10" cy="18" r="3.2" fill="var(--wheel)" stroke="currentColor" stroke-width="2.4"/>
-    <circle cx="36" cy="18" r="3.2" fill="var(--wheel)" stroke="currentColor" stroke-width="2.4"/>
-  </symbol>
 </svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="open"><span class="dot"></span>Open now · 24 hours, every day</span>
+    <span class="where">Sherwood · Tualatin · Tigard · Newberg · Wilsonville</span>
+  </div>
+</div>
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg><span>Aguirre's Towing<span class="brand-tail"> and Recovery</span></span></a>
+    <a class="brand" href="#top"><img src="brand/logo-white.png" width="683" height="240" alt="Aguirre's Towing"></a>
     <nav class="nav" aria-label="Sections">
-      <a href="#quote">Quote</a>
+      <a href="#services">Services</a>
+      <a href="#shop">Our shop</a>
+      <a href="#pricing">Pricing</a>
       <a href="#photos">Photos</a>
       <a href="#reviews">Reviews</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#area">Area</a>
+      <a href="#location">Location</a>
       <a href="#faq">Questions</a>
     </nav>
     <a class="btn btn-accent header-call" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="num">(971) 329-0201</span><span class="short">Call</span></a>
@@ -362,221 +548,265 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
 <main id="top">
 
 <section class="hero">
-  <div class="wrap">
+  <picture class="hero-bg">
+    <source media="(max-width:719px)" srcset="photos/hero-m.jpg" width="900" height="750">
+    <img src="photos/hero.jpg" width="1500" height="968" alt="Aguirre's flatbed tow truck carrying a red classic Mustang convertible on a tree-lined road" fetchpriority="high">
+  </picture>
+  <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Sherwood, Oregon · 24-hour towing and recovery</p>
-      <h1>One call.<br>One flat price.<br>Truck on the way.</h1>
-      <p class="lede">Aguirre's Towing and Recovery runs flatbed tows and roadside help around Sherwood, Tualatin, Tigard, Newberg and Wilsonville. We're the same family as Aguirre's Mobile Auto Repair, so if the car can be fixed, we can fix it too. You get the price and an ETA on the phone before the truck moves.</p>
+      <p class="eyebrow">Sherwood, Oregon · Towing, recovery, repair and body shop</p>
+      <h1>24-hour towing in Sherwood. <span>We tow it. <span>We fix it.</span></span></h1>
+      <p class="lede">One company for the whole job: flatbed towing, roadside help and recovery around Sherwood, Tualatin, Tigard, Newberg and Wilsonville, plus our own shop for mechanical repair, body work and paint. One call covers the tow and the repair, and you get one flat price and an ETA before the truck moves.</p>
       <div class="cta-row">
         <a class="btn btn-accent btn-lg" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call (971) 329-0201</a>
-        <a class="btn btn-ghost btn-lg half" href="sms:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Text us</a>
-        <a class="btn btn-ghost btn-lg half" href="#quote">Get a quote</a>
+        <a class="btn btn-ghost btn-lg" href="sms:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Text us</a>
       </div>
-    </div>
-    <aside class="proof" aria-label="What you can count on">
-      <h2>What you can count on</h2>
-      <ul>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Flatbed trucks, so nothing drags.</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Flat price before dispatch. No add-ons at drop-off.</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Tow to any shop you choose, or straight to our own mechanics.</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Marked trucks. Drivers with ID.</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Licensed, insured, ODOT-certified. Locally owned, based in Sherwood.</li>
+      <ul class="trust">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Licensed and insured</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Flat price before dispatch</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Repair and body shop in-house</li>
       </ul>
+    </div>
+    <aside class="hero-card" aria-label="From a recent job">
+      <img class="shot" src="photos/card.jpg" width="880" height="660" alt="Blue pickup strapped down on an Aguirre's flatbed, the company name and phone number on the truck door">
+      <a class="mini" href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=fGz5IiyfUfW9_FxAQjbCEQ" target="_blank" rel="noopener">
+        <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span>
+        <blockquote>&ldquo;&hellip;not only is the work amazing and fast but the pricing is perfect too.&rdquo;</blockquote>
+        <span class="by"><img src="photos/review-source.svg" alt="" width="18" height="18">Vania R. · Nov 5, 2026 · via Yelp</span>
+      </a>
+      <div class="tiles">
+        <div class="tile"><b>24/7</b><span>Always open</span></div>
+        <div class="tile"><b>1 call</b><span>Tow and repair</span></div>
+      </div>
     </aside>
   </div>
 </section>
-<div class="stripe" aria-hidden="true"></div>
 
-<section class="section band" id="quote">
-  <div class="wrap cols">
-    <div>
-      <p class="eyebrow">Request a quote</p>
-      <h2>Tell us where you are and what you need.</h2>
-      <p class="lede">Pick what you need, share your location, and send. It goes straight to our dispatch phone as a text, and we text back a flat price and an ETA, day or night.</p>
-      <p class="quote-alt">Rather talk? <a href="tel:+19713290201">Call (971) 329-0201</a>.</p>
-    </div>
-    <form class="qform" id="qform" novalidate>
-      <div class="qf" role="group" aria-labelledby="ql-need">
-        <p class="qf-label" id="ql-need">What do you need?</p>
-        <div class="chips" data-name="need">
-          <button type="button" class="chip" aria-pressed="false" data-value="Tow">Tow</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Jump start">Jump start</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Lockout">Lockout</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Flat tire">Flat tire</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Winch-out">Winch-out</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Accident">Accident</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Not sure">Not sure</button>
-        </div>
-      </div>
-      <div class="qf" role="group" aria-labelledby="ql-vehicle">
-        <p class="qf-label" id="ql-vehicle">What are you driving?</p>
-        <div class="chips" data-name="vehicle">
-          <button type="button" class="chip" aria-pressed="false" data-value="Car">Car</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="SUV">SUV</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Pickup">Pickup</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Van">Van</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Motorcycle">Motorcycle</button>
-          <button type="button" class="chip" aria-pressed="false" data-value="Other">Other</button>
-        </div>
-      </div>
-      <div class="qf">
-        <p class="qf-label" id="ql-where">Where are you?</p>
-        <button type="button" class="btn btn-outline locate" id="locate"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Use my location</span></button>
-        <p class="loc-status" id="locstatus" aria-live="polite"></p>
-        <input class="field" id="where" type="text" aria-labelledby="ql-where" placeholder="Or type an address or cross streets" autocomplete="street-address" enterkeyhint="done">
-      </div>
-      <div class="qf" id="dest-wrap" hidden>
-        <label class="qf-label" for="dest">Where is it going? <span class="opt">optional</span></label>
-        <input class="field" id="dest" type="text" placeholder="Shop name or address, or “not sure yet”" enterkeyhint="done">
-      </div>
-      <div class="qf">
-        <label class="qf-label" for="name">Your name <span class="opt">optional</span></label>
-        <input class="field" id="name" type="text" autocomplete="name" placeholder="So the driver knows who to ask for" enterkeyhint="done">
-      </div>
-      <p class="qf-error" id="qerror" role="alert" hidden></p>
-      <button type="submit" class="btn btn-accent btn-lg send"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Send as a text</button>
-      <p class="qf-note">Opens your messages app with the details filled in. Nothing goes out until you tap send. Or call <a href="tel:+19713290201">(971) 329-0201</a>.</p>
-      <div class="qf-fallback" id="qfallback" data-ph-no-autocapture hidden>
-        <p><strong>Messages didn't open?</strong> Text this to (971) 329-0201 from your phone, or call and read it off.</p>
-        <pre id="qpreview"></pre>
-        <button type="button" class="btn btn-outline" id="copy">Copy message</button>
-      </div>
-    </form>
+<section class="stats" aria-label="At a glance">
+  <div class="wrap">
+    <ul>
+      <li><b>24/7</b><span>Day and night, holidays too</span></li>
+      <li><b>8</b><span>Cities in our normal range</span></li>
+      <li><b>3-in-1</b><span>Tow, repair and body shop</span></li>
+      <li><b>$0</b><span>Added at drop-off</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="section" id="photos">
+<section class="section" id="services">
   <div class="wrap">
-    <div class="section-head">
+    <div class="head">
+      <p class="eyebrow">What we do</p>
+      <h2>Towing and roadside help, day or night</h2>
+      <p>Not sure which one you need? Call and we'll tell you. If a jump or a quick fix will do, that's what we'll do.</p>
+    </div>
+    <ul class="svc-grid">
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 16V8.75A1.75 1.75 0 0 1 4.25 7H8.5l3 4h10v5"/><path d="M2.5 16h19"/><path d="M4.5 7V5.5h3.5V7"/><circle cx="7.5" cy="17" r="2.25" fill="var(--wheel)"/><circle cx="17" cy="17" r="2.25" fill="var(--wheel)"/></svg></span><div><h3>Flatbed towing</h3><p>Cars, trucks, SUVs and motorcycles ride on the bed, nothing drags. All-wheel drive, lowered and classic cars included.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 2.5 20h19z"/><path d="M12 9.5v4.5M12 17h.01"/></svg></span><div><h3>Accident towing</h3><p>From the scene to the shop or yard you choose, with an itemized receipt for your insurance.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="1.75"/><path d="M12 5.75v6.75"/><path d="M12 12.5a4.5 4.5 0 1 1-9 0v-1.5"/></svg></span><div><h3>Winch-outs and recovery</h3><p>Ditches, mud and soft shoulders, pulled out without adding to the damage.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18.5h9a4 4 0 0 0 0-8H9.5a3.5 3.5 0 0 1 0-7H17"/><circle cx="19.5" cy="3.5" r="1.75"/><circle cx="4" cy="18.5" r="1.75"/></svg></span><div><h3>Long-distance transport</h3><p>Scheduled moves anywhere in Oregon and into Washington. Project cars, auction runs, dealer pickups.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></svg></span><div><h3>Jump starts</h3><p>We get you started and tell you honestly if the battery needs replacing or just needed a boost.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="16.5" r="4.5"/><path d="M10.7 13.3 20.5 3.5M17.5 6.5l3 3M14.5 9.5l2.5 2.5"/></svg></span><div><h3>Lockouts</h3><p>Damage-free entry on most vehicles, usually in a few minutes. Home, work, or a parking lot.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.25"/><path d="M12 3v5.75M12 15.25V21M3 12h5.75M15.25 12H21"/></svg></span><div><h3>Flat tires</h3><p>Spare on and pressure checked. No spare, or the spare is flat too? We tow you to a tire shop.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><div><h3>Mobile mechanic</h3><p>Aguirre's Mobile Auto Repair comes to you. If the car can be fixed where it sits, we fix it instead of towing it.</p></div></li>
+      <li class="svc"><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V8l2-2 2 2v12M11 20V8l2-2 2 2v12M18 20V8l2-2 2 2v12M2 12h20M2 17h20"/></svg></span><div><h3>Vehicle storage</h3><p>Fenced, gated yard in Sherwood. Daily rate quoted up front, before the car goes in.</p></div></li>
+    </ul>
+    <ul class="tips" aria-label="While you wait">
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Get off the road, hazards on. On 99W or I-5, stay in the car with your seatbelt on.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Every truck has Aguirre's Towing on the doors. If a truck you didn't call offers to take your car, say no and call us.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>You get a receipt, printed or texted, before we leave.</span></li>
+    </ul>
+    <div class="shopbar">
+      <strong>Needs fixing after the tow? <span>We do that too.</span></strong>
+      <a class="btn btn-accent" href="#shop">See our shop</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="shop">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Our own shop</p>
+        <h2>Towed here. Fixed here.</h2>
+        <p class="lede">Most tow companies drop your car at someone else's shop. Ours can go straight to our own. Mechanical repair, collision work, dents and paint are all done in-house, so you deal with one crew and get one straight price. It's your call, never a condition of the tow.</p>
+        <div class="cta-row">
+          <a class="btn btn-accent" href="sms:+19713290201?&amp;body=Body%20work%20estimate%20request%20from%20aguirrestowing.com.%20Photos%20attached."><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Text photos for an estimate</a>
+          <a class="btn btn-outline" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call (971) 329-0201</a>
+        </div>
+        <p class="note">Send a few photos of the damage with the year, make and model, and we'll get back to you with an estimate.</p>
+      </div>
+      <ul class="feats">
+        <li><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l1.7-4.4A2 2 0 0 1 6.6 7.3h10.8a2 2 0 0 1 1.9 1.3L21 13"/><path d="M3 13h18v4.5H3z"/><circle cx="7.5" cy="17.5" r="1.9" fill="var(--wheel)"/><circle cx="16.5" cy="17.5" r="1.9" fill="var(--wheel)"/></svg></span><div><h3>Collision and body repair</h3><p>Fenders, doors, bumpers, quarter panels and roofs. From a parking-lot dent to a hard hit.</p></div></li>
+        <li><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2s6.2 6.3 6.2 10.8a6.2 6.2 0 0 1-12.4 0C5.8 9.5 12 3.2 12 3.2z"/><path d="M9.2 14.2a2.9 2.9 0 0 0 2.9 2.9"/></svg></span><div><h3>Paint</h3><p>One panel or the whole car, sprayed and finished at our shop.</p></div></li>
+        <li><span class="ico"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><div><h3>Mechanical repair</h3><p>We tow it to our own mechanics and call you with a diagnosis. Mobile repair where the job allows.</p></div></li>
+      </ul>
+    </div>
+    <h3 class="sub-head">Before and after, from our shop</h3>
+    <div class="pairs">
+      <figure class="pair">
+        <div class="pair-imgs">
+          <div class="pshot"><img src="photos/shop-05a.jpg" width="800" height="600" alt="Rear corner of a burgundy classic Ford Mustang crushed in, with the bumper twisted, in the shop" loading="lazy" decoding="async"><span class="tag">Before</span></div>
+          <div class="pshot"><img src="photos/shop-05b.jpg" width="800" height="600" alt="The same Mustang after the repair and repaint, parked outside the shop" loading="lazy" decoding="async"><span class="tag after">After</span></div>
+        </div>
+        <figcaption><strong>Classic Ford Mustang.</strong> Crushed rear corner, rebuilt in metal and repainted.</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="pair-imgs">
+          <div class="pshot"><img src="photos/shop-02a.jpg" width="800" height="600" alt="Dent circled in red marker on the front fender of a gray Tesla" loading="lazy" decoding="async"><span class="tag">Before</span></div>
+          <div class="pshot"><img src="photos/shop-02b.jpg" width="800" height="600" alt="The gray Tesla Model Y finished, parked under the Aguirre's Auto Body sign" loading="lazy" decoding="async"><span class="tag after">After</span></div>
+        </div>
+        <figcaption><strong>Tesla Model Y.</strong> Dented front fender, repaired and refinished.</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="pair-imgs">
+          <div class="pshot"><img src="photos/shop-03a.jpg" width="800" height="600" alt="Blue Hyundai Elantra with its rear quarter panel sanded and in primer" loading="lazy" decoding="async"><span class="tag">In primer</span></div>
+          <div class="pshot"><img src="photos/shop-03b.jpg" width="800" height="600" alt="The blue Elantra finished, the repaired panel matching the rest of the car" loading="lazy" decoding="async"><span class="tag after">Finished</span></div>
+        </div>
+        <figcaption><strong>Hyundai Elantra.</strong> Rear quarter panel, from primer to matched paint.</figcaption>
+      </figure>
+      <figure class="pair">
+        <div class="pair-imgs">
+          <div class="pshot"><img src="photos/shop-04a.jpg" width="800" height="600" alt="White Toyota Land Cruiser with its rear door and quarter panel in dark primer" loading="lazy" decoding="async"><span class="tag">In primer</span></div>
+          <div class="pshot"><img src="photos/shop-04b.jpg" width="800" height="600" alt="The white Land Cruiser finished, side panels repainted" loading="lazy" decoding="async"><span class="tag after">Finished</span></div>
+        </div>
+        <figcaption><strong>Toyota Land Cruiser.</strong> Rear door and quarter panel, repaired and repainted.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="pricing">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Pricing</p>
+      <h2>Honest, fair pricing.</h2>
+      <p class="lede">Towing has a reputation for surprise bills. We don't work that way. You get one fair price before the truck moves, and you're welcome to compare it.</p>
+      <ul class="ptiles">
+        <li class="ptile"><h3>Quoted before we roll</h3><p>Tell us where you are, where the vehicle is going, and what you drive. You get the full price on the phone, not a range.</p></li>
+        <li class="ptile"><h3>No add-ons at drop-off</h3><p>Hook-up and mileage are in the quote. Nothing gets tacked on when the truck arrives or when the car comes off the bed.</p></li>
+        <li class="ptile"><h3>Storage at our yard</h3><p>Billed per day at a flat rate we tell you before the car goes into the yard. Fenced, gated lot in Sherwood.</p></li>
+        <li class="ptile"><h3>Pay when it's done</h3><p>Card or cash at the scene, or a secure payment link we text you. Receipt printed or texted.</p></li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call for a price</a>
+        <a class="btn btn-ghost" href="sms:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Text us</a>
+      </div>
+      <p class="note">Our Yelp reviews mention the price. <a href="#reviews">Read them</a>.</p>
+    </div>
+    <figure class="pphoto">
+      <img src="photos/truck-night.jpg" width="840" height="980" alt="Aguirre's tow truck at night, amber lights on, the Aguirre's Towing name and phone number on the door" loading="lazy" decoding="async">
+      <figcaption>Aguirre's Towing is on the doors of every truck.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="tape" aria-hidden="true"></div>
+<section class="section dark" id="photos">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">On the job</p>
       <h2>Our trucks, real jobs</h2>
-      <p>Photos from recent tows around Sherwood. Daily drivers, collision tows, and classics that need a careful hand.</p>
+      <p>Photos and clips from our own tows. Daily drivers, collision tows, recoveries, and classics that need a careful hand.</p>
     </div>
     <div class="gallery">
-      <figure><img src="photos/photo-1.jpg" width="1000" height="750" alt="White BMW sedan loaded on an Aguirre's flatbed on a residential street in Sherwood" loading="lazy"><figcaption>Flatbed pickup, Sherwood</figcaption></figure>
-      <figure><img src="photos/photo-2.jpg" width="1000" height="750" alt="White Lexus coupe on the flatbed at night with the truck's lights on" loading="lazy"><figcaption>Night call, loaded and rolling</figcaption></figure>
-      <figure><img src="photos/photo-3.jpg" width="1000" height="750" alt="Damaged white BMW on the flatbed next to a shop building, truck door marked Aguirre's" loading="lazy"><figcaption>Collision tow, dropped at the shop</figcaption></figure>
-      <figure><img src="photos/photo-7.jpg" width="1000" height="750" alt="Vintage maroon sedan being winched up the tilted flatbed" loading="lazy"><figcaption>Loading a classic, slow and level</figcaption></figure>
-      <figure><img src="photos/photo-8.jpg" width="1000" height="750" alt="Blue vintage pickup strapped down on the flatbed on a sunny day" loading="lazy"><figcaption>Vintage pickup, strapped down</figcaption></figure>
-      <figure><img src="photos/photo-9.jpg" width="1000" height="750" alt="Light blue classic car on the flatbed in front of a shop" loading="lazy"><figcaption>Classic cruiser, daytime move</figcaption></figure>
+      <figure><img src="photos/job-01.jpg" width="960" height="720" alt="Sedan with front-end collision damage on the flatbed, Aguirre's Towing on the truck door" loading="lazy" decoding="async"><figcaption>Front-end collision, loaded and strapped</figcaption></figure>
+      <figure><img src="photos/job-02.jpg" width="960" height="720" alt="Maroon 1930s hot rod sitting on the tilted flatbed" loading="lazy" decoding="async"><figcaption>Hot rod, loaded slow and level</figcaption></figure>
+      <figure><img src="photos/job-04.jpg" width="960" height="720" alt="White coupe on the flatbed at night with the truck's lights on" loading="lazy" decoding="async"><figcaption>Night call, loaded and rolling</figcaption></figure>
+      <figure><img src="photos/job-03.jpg" width="960" height="720" alt="Long white classic sedan on the tilted flatbed outside a commercial building" loading="lazy" decoding="async"><figcaption>Classic sedan on the tilt bed</figcaption></figure>
+      <figure><img src="photos/job-05.jpg" width="960" height="720" alt="Blue Honda SUV strapped at the wheels on the flatbed under oak trees" loading="lazy" decoding="async"><figcaption>Daily driver, strapped at the wheels</figcaption></figure>
+      <figure><img src="photos/job-06.jpg" width="960" height="720" alt="Gray sedan rolling up the tilted flatbed under a stormy sky" loading="lazy" decoding="async"><figcaption>Loading a sedan on the tilt bed</figcaption></figure>
+      <figure><img src="photos/job-07.jpg" width="960" height="720" alt="Copper classic Mustang convertible on the flatbed inside a barn" loading="lazy" decoding="async"><figcaption>Classic Mustang, picked up indoors</figcaption></figure>
+      <figure><img src="photos/job-08.jpg" width="960" height="720" alt="Two-tone vintage Ford pickup on the flatbed, Aguirre's Towing on the truck door" loading="lazy" decoding="async"><figcaption>Vintage pickup, strapped down</figcaption></figure>
+      <figure><img src="photos/job-09.jpg" width="960" height="720" alt="Pickup with a ladder rack on the flatbed at a gas station" loading="lazy" decoding="async"><figcaption>Work truck with a ladder rack</figcaption></figure>
+    </div>
+    <h3 class="sub-head">On video</h3>
+    <div class="clips">
+      <figure class="clip"><video controls playsinline muted loop preload="none" poster="clips/motorhome.jpg" width="576" height="1024" aria-label="Video: a motorhome riding on the Aguirre's flatbed"><source src="clips/motorhome.mp4" type="video/mp4"></video><figcaption>A motorhome on the flatbed</figcaption></figure>
+      <figure class="clip"><video controls playsinline muted loop preload="none" poster="clips/collision.jpg" width="576" height="1024" aria-label="Video: a pickup with rear collision damage loaded on the flatbed"><source src="clips/collision.mp4" type="video/mp4"></video><figcaption>Collision tow at dusk</figcaption></figure>
+      <figure class="clip"><video controls playsinline muted loop preload="none" poster="clips/recovery.jpg" width="576" height="1024" aria-label="Video: a truck down a riverbank, then a Jeep recovered from a forest road"><source src="clips/recovery.mp4" type="video/mp4"></video><figcaption>Off the road, back on the bed</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="section band" id="reviews">
+<section class="section alt" id="reviews">
   <div class="wrap">
-    <div class="section-head">
-      <h2>Reviews</h2>
+    <div class="head">
+      <p class="eyebrow">Reviews</p>
+      <h2>What customers say</h2>
       <p>Real customer reviews, each linked to the original.</p>
     </div>
     <div class="platforms">
-      <a class="review" href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=MC6dchWLoVSlrC5YvQdEnQ" target="_blank" rel="noopener">
+      <a class="review" href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=fGz5IiyfUfW9_FxAQjbCEQ" target="_blank" rel="noopener">
         <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span>
-        <blockquote>&ldquo;Great work and price! Highly recommend&rdquo;</blockquote>
-        <span class="review-by"><strong>John B.</strong><span>Sherwood, OR &middot; Nov 3, 2026 &middot; via Yelp</span></span>
+        <blockquote>&ldquo;&hellip;not only is the work amazing and fast but the pricing is perfect too.&rdquo;</blockquote>
+        <span class="review-by"><strong>Vania R.</strong><span>Beaverton, OR &middot; Nov 5, 2026 &middot; via Yelp</span></span>
+        <span class="review-link"><img src="photos/review-source.svg" alt="" width="22" height="22">Read the full review on Yelp</span>
+      </a>
+      <a class="review" href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=74sUC_MkUNkf9cGFjpe50A" target="_blank" rel="noopener">
+        <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span>
+        <blockquote>&ldquo;He truly cares about his customers and goes above and beyond&hellip;&rdquo;</blockquote>
+        <span class="review-by"><strong>Michelle</strong><span>Portland, OR &middot; Nov 5, 2026 &middot; via Yelp</span></span>
+        <span class="review-link"><img src="photos/review-source.svg" alt="" width="22" height="22">Read the full review on Yelp</span>
+      </a>
+      <a class="review" href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood?hrid=pG2hdEXPeRY2CNk2WeDwmw" target="_blank" rel="noopener">
+        <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></span>
+        <blockquote>&ldquo;Great customer service, fast response, and fair pricing.&rdquo;</blockquote>
+        <span class="review-by"><strong>Judith R.</strong><span>Portland, OR &middot; Nov 4, 2026 &middot; via Yelp</span></span>
         <span class="review-link"><img src="photos/review-source.svg" alt="" width="22" height="22">Read the full review on Yelp</span>
       </a>
     </div>
   </div>
 </section>
 
-<section class="section" id="services">
+<section class="section" id="location">
   <div class="wrap">
-    <div class="section-head">
-      <h2>What we handle</h2>
-      <p>Not sure which one you need? Call and we'll tell you. If a jump or a quick fix will do, that's what we'll do.</p>
+    <div class="head">
+      <p class="eyebrow">Our location</p>
+      <h2>Find us in Sherwood</h2>
+      <p>Yard 2, behind the gate. Call or text before you come by, day or night, and we'll meet you there.</p>
     </div>
-    <ul class="svcs">
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 16V8.75A1.75 1.75 0 0 1 4.25 7H8.5l3 4h10v5"/><path d="M2.5 16h19"/><path d="M4.5 7V5.5h3.5V7"/><circle cx="7.5" cy="17" r="2.25" fill="var(--wheel)"/><circle cx="17" cy="17" r="2.25" fill="var(--wheel)"/></svg><div><strong>Flatbed towing</strong><span>Cars, trucks, SUVs and motorcycles ride on the bed, nothing drags. All-wheel drive, lowered and classic cars included.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><div><strong>Mobile mechanic</strong><span>Aguirre's Mobile Auto Repair comes to you. If the car can be fixed where it sits, we fix it instead of towing it.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M7.5 21v-8h9v8"/><path d="M7.5 17h9"/></svg><div><strong>Repair at our shop</strong><span>Want it handled start to finish? We tow it to our own mechanics and call you with a diagnosis. Your call, never a condition of the tow.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12z"/></svg><div><strong>Jump starts</strong><span>We get you started and tell you honestly if the battery needs replacing or just needed a boost.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="16.5" r="4.5"/><path d="M10.7 13.3 20.5 3.5M17.5 6.5l3 3M14.5 9.5l2.5 2.5"/></svg><div><strong>Lockouts</strong><span>Damage-free entry on most vehicles, usually in a few minutes. Home, work, or a parking lot.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.25"/><path d="M12 3v5.75M12 15.25V21M3 12h5.75M15.25 12H21"/></svg><div><strong>Flat tires</strong><span>Spare on and pressure checked. No spare, or the spare is flat too? We tow you to a tire shop.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="1.75"/><path d="M12 5.75v6.75"/><path d="M12 12.5a4.5 4.5 0 1 1-9 0v-1.5"/></svg><div><strong>Winch-outs and recovery</strong><span>Ditches, mud and soft shoulders, pulled out without adding to the damage.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 2.5 20h19z"/><path d="M12 9.5v4.5M12 17h.01"/></svg><div><strong>Accident towing</strong><span>From the scene to the shop or yard you choose, with an itemized receipt for your insurance.</span></div></li>
-      <li class="svc"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18.5h9a4 4 0 0 0 0-8H9.5a3.5 3.5 0 0 1 0-7H17"/><circle cx="19.5" cy="3.5" r="1.75"/><circle cx="4" cy="18.5" r="1.75"/></svg><div><strong>Long-distance transport</strong><span>Scheduled moves anywhere in Oregon and into Washington. Project cars, auction runs, dealer pickups.</span></div></li>
-    </ul>
-  </div>
-</section>
-
-<section class="section band" id="pricing">
-  <div class="wrap cols">
-    <div>
-      <p class="eyebrow">Pricing</p>
-      <h2>Straight answers on price.</h2>
-      <p class="lede">Towing has a reputation for surprise bills. We don't work that way. Here is how a quote works with us.</p>
-      <div class="cta-row">
-        <a class="btn btn-accent" href="#quote">Get a quote</a>
-        <a class="btn btn-outline" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call (971) 329-0201</a>
+    <div class="loc">
+      <div class="addr">
+        <p class="big">25400 SW Grahams Ferry Rd<br>Sherwood, OR 97140</p>
+        <p>Yard 2. Look for the sign on the fence.</p>
+        <p>Open 24 hours, every day.</p>
+        <div class="cta-row">
+          <a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=45.335848,-122.788566" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Open in Google Maps</a>
+          <a class="btn btn-ghost" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+        </div>
       </div>
+      <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=45.335848,-122.788566" target="_blank" rel="noopener">
+        <img src="photos/map.jpg" width="1200" height="800" alt="Map with a pin on Aguirre's yard on SW Grahams Ferry Rd, just off Elligsen Way near I-5 in Sherwood" loading="lazy" decoding="async">
+        <span class="map-cta"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Open in Google Maps</span>
+      </a>
     </div>
-    <ul class="points">
-      <li><strong>Quoted before we roll.</strong> Tell us where you are, where the vehicle is going, and what you drive. You get the full price on the phone, not a range.</li>
-      <li><strong>No add-ons at drop-off.</strong> Hook-up and mileage are in the quote. Nothing gets tacked on when the truck arrives or when the car comes off the bed.</li>
-      <li><strong>Roadside plan or insurance?</strong> Most plans reimburse a tow, a jump, or a lockout. Ask when you call, and we'll give you the itemized receipt they need.</li>
-      <li><strong>Pay when it's done.</strong> Card or cash at the scene, or a secure payment link we text you. Receipt printed or texted.</li>
-    </ul>
+    <div class="yard-photos">
+      <figure><img src="photos/yard-sign.jpg" width="1280" height="701" alt="Yard 2 sign on the fence at Aguirre's yard" loading="lazy" decoding="async"><figcaption>Yard 2, our sign on the fence</figcaption></figure>
+      <figure><img src="photos/yard-gate.jpg" width="1280" height="720" alt="The sliding gate and office at the yard" loading="lazy" decoding="async"><figcaption>The gate and the office</figcaption></figure>
+      <figure><img src="photos/yard-truck.jpg" width="960" height="1138" alt="Aguirre's tow truck parked at the yard" loading="lazy" decoding="async"><figcaption>Our truck at the yard</figcaption></figure>
+    </div>
   </div>
 </section>
 
-<section class="section" id="area">
-  <div class="wrap cols">
-    <div>
+<section class="section alt" id="area">
+  <div class="wrap">
+    <div class="head">
       <p class="eyebrow">Service area</p>
       <h2>Based in Sherwood, so we're already close.</h2>
-      <p class="lede">Our trucks start from Sherwood and work the 99W corridor all day. Anywhere on this list is normal range. Further out, we still come, we just quote the extra miles up front.</p>
+      <p>Our trucks start from Sherwood and work the 99W corridor all day. Anywhere on this list is normal range. Further out, we still come, we just quote the extra miles up front.</p>
     </div>
-    <div class="area">
-      <div>
-        <h3>Cities</h3>
-        <ul>
-          <li>Sherwood</li><li>Tualatin</li><li>Tigard</li><li>King City</li><li>Newberg</li><li>Wilsonville</li><li>Beaverton</li><li>Lake Oswego</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Roads</h3>
-        <ul>
-          <li>Hwy 99W</li><li>I-5</li><li>I-205</li><li>Hwy 217</li><li>Tualatin-Sherwood Rd</li><li>Roy Rogers Rd</li><li>Scholls Ferry Rd</li><li>Hwy 219</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section band" id="safety">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Before the truck gets there</h2>
-      <p>Two things worth knowing while you wait.</p>
-    </div>
-    <div class="twin">
-      <div class="box">
-        <h3>While you wait on the shoulder</h3>
-        <p>Keep yourself safe first. The car can wait.</p>
-        <ul>
-          <li>Get as far off the road as you safely can and turn on your hazards.</li>
-          <li>On 99W or I-5, stay in the car with your seatbelt on. The shoulder is more dangerous than the breakdown.</li>
-          <li>Keep your phone handy. The driver calls when they're a few minutes out.</li>
-          <li>Have your keys and the address of your shop ready.</li>
-        </ul>
-      </div>
-      <div class="box">
-        <h3>How to know it's us</h3>
-        <p>Unmarked trucks sometimes show up at accident scenes uninvited. Here is how to tell ours.</p>
-        <ul>
-          <li>Every truck has Aguirre's Towing on the doors.</li>
-          <li>The driver already knows your name and where the car is going.</li>
-          <li>You get a receipt, printed or texted, before we leave.</li>
-          <li>If a truck you didn't call offers to take your car, say no and call us.</li>
-        </ul>
-      </div>
-    </div>
+    <ul class="pills" aria-label="Cities">
+      <li class="pill home">Sherwood</li><li class="pill">Tualatin</li><li class="pill">Tigard</li><li class="pill">King City</li><li class="pill">Newberg</li><li class="pill">Wilsonville</li><li class="pill">Beaverton</li><li class="pill">Lake Oswego</li>
+    </ul>
+    <p class="roads">Hwy 99W · I-5 · I-205 · Hwy 217 · Tualatin-Sherwood Rd · Roy Rogers Rd · Scholls Ferry Rd · Hwy 219</p>
   </div>
 </section>
 
 <section class="section" id="faq">
   <div class="wrap">
-    <div class="section-head">
+    <div class="head">
+      <p class="eyebrow">Common questions</p>
       <h2>Things people ask before they call</h2>
     </div>
     <ul class="faq">
@@ -584,14 +814,13 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
       <li><h3>Will my insurance or roadside plan cover this?</h3><p>Often, yes. Most plans reimburse a tow, a jump start, or a lockout. Call us first so you're not waiting on a call center, and we'll give you the itemized receipt your plan needs.</p></li>
       <li><h3>Will a flatbed damage my car?</h3><p>No. The whole car rides on the bed, so nothing drags or spins. It's the right way to move all-wheel drive, lowered, electric, and classic cars.</p></li>
       <li><h3>Can you take my car to the shop I choose?</h3><p>Always. You pick the shop. Our own mechanics at Aguirre's Mobile Auto Repair can look at it if you'd rather not shop around, but that's your choice, never a condition of the tow.</p></li>
-      <li><h3>Can I ride along in the truck?</h3><p>Usually yes, one or two passengers with seatbelts on. Tell us when you call so the right truck comes.</p></li>
-      <li><h3>What about the things in my car?</h3><p>Your belongings stay in the car. Grab what you need before we load it, like your phone charger, wallet, and anything in the trunk.</p></li>
-      <li><h3>What if I'm not sure I need a tow?</h3><p>Call anyway. If a jump start, a tire change, or a quick fix on the spot will get you going, that's what we'll do, and it costs less than a tow.</p></li>
-      <li><h3>Do you tow motorcycles and electric cars?</h3><p>Yes. Motorcycles are strapped down on the flatbed. Electric cars go on the flatbed too, which is the only safe way to move most of them.</p></li>
+            <li><h3>Do I have to be there when you pick up the car?</h3><p>No. If you can't be at the car, tell us where it is and where the keys are. We text you when it's loaded and again when it's dropped off.</p></li>
+                        <li><h3>Are you licensed and insured?</h3><p>Yes. Aguirre's Towing &amp; Recovery LLC is a licensed and insured Oregon business.</p></li>
     </ul>
   </div>
 </section>
 
+<div class="tape" aria-hidden="true"></div>
 <section class="contact" id="contact">
   <div class="wrap">
     <div>
@@ -603,12 +832,13 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
         <a class="btn btn-accent btn-lg" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call now</a>
         <a class="btn btn-ghost btn-lg" href="sms:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Send a text</a>
       </div>
-      <p class="later"><strong>Need a tow later, not now?</strong> <a href="#quote">Send a quote request</a> with the pickup, the drop-off, the vehicle, and when. We reply with a flat price and set a time.</p>
+      <p class="later"><strong>Need a tow later, not now?</strong> <a href="sms:+19713290201">Text us</a> the pickup, the drop-off, the vehicle, and when. We reply with a flat price and set a time.</p>
     </div>
     <dl class="details">
       <div><dt>Hours</dt><dd>24 hours, every day, including holidays</dd></div>
-      <div><dt>Based in</dt><dd>Sherwood, Oregon<span class="sub">Serving the 99W corridor and the Portland metro south side</span></dd></div>
-      <div><dt>Repairs</dt><dd>Aguirre's Mobile Auto Repair<span class="sub">Same family. Mobile mechanics and in-house repairs.</span></dd></div>
+      <div><dt>Yard</dt><dd><a href="#location">25400 SW Grahams Ferry Rd, Sherwood, OR 97140</a><span class="sub">Yard 2. Serving the 99W corridor and the Portland metro south side</span></dd></div>
+      <div><dt>Repairs</dt><dd>Mechanical repair, body work and paint<span class="sub">Same family. Aguirre's Mobile Auto Repair and our own body shop.</span></dd></div>
+      <div><dt>Credentials</dt><dd>Licensed, insured, ODOT-certified<span class="sub">Locally owned</span></dd></div>
       <div><dt>Find us</dt><dd><a href="https://www.yelp.com/biz/aguirres-towing-and-recovery-sherwood" target="_blank" rel="noopener">Aguirre's Towing and Recovery on Yelp</a></dd></div>
     </dl>
   </div>
@@ -617,15 +847,35 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
 </main>
 
 <footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <img src="brand/logo-white.png" width="683" height="240" alt="Aguirre's Towing" loading="lazy" decoding="async">
+      <p>24-hour towing and recovery in Sherwood, Oregon, with our own repair and body shop.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="tel:+19713290201">(971) 329-0201</a></li>
+        <li><a href="sms:+19713290201">Send a text</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Hours</h3>
+      <p class="hours"><span class="dot"></span>Open 24 hours, every day</p>
+      <p>Holidays included. Call any time.</p>
+    </div>
+  </div>
   <div class="wrap">
-    <a class="brand" href="#top"><svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg><span>Aguirre's Towing and Recovery</span></a>
-    <p>© 2026 Aguirre's Towing and Recovery · Sherwood, Oregon</p>
+    <div class="foot-base">
+      <p>© 2026 Aguirre's Towing and Recovery</p>
+      <p>Sherwood, Oregon · Licensed and insured</p>
+    </div>
   </div>
 </footer>
 
 <div class="callbar">
   <a class="cb-call" href="tel:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call (971) 329-0201</a>
-  <a class="cb-quote" href="#quote">Get a quote</a>
+  <a class="cb-quote" href="sms:+19713290201"><svg class="icon" aria-hidden="true"><use href="#i-msg"/></svg>Text us</a>
 </div>
 
 <script>
@@ -653,6 +903,7 @@ posthog.init('phc_kThT5knv3r6RRBWX78c7DfJvBnShaor4XcFZzoLDvkDE',{
     var a=e.target.closest('a[href^="tel:"],a[href^="sms:"]');
     if(a)track(a.getAttribute('href').indexOf('tel:')===0?'Call tapped':'Text tapped');
   });
+  document.querySelectorAll('video').forEach(function(v){v.addEventListener('play',function(){track('Clip played');},{once:true});});
   var form=document.getElementById('qform');
   if(!form) return;
   var $=function(id){return document.getElementById(id)};
