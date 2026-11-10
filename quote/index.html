@@ -255,7 +255,7 @@ body.locked{overflow:hidden}
       fonts:[{cssSrc:'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap'}],
       appearance:{theme:'night',variables:{colorPrimary:'#ffb400',colorBackground:'#0a0e15',colorText:'#e9edf2',colorDanger:'#ff8a7a',fontFamily:'Barlow, system-ui, sans-serif',borderRadius:'10px'}}});
     $('sheet').hidden=false;document.body.classList.add('locked');
-    elements.create('payment',{layout:'tabs',defaultValues:{billingDetails:who}}).mount('#pe');
+    elements.create('payment',{layout:{type:'accordion',defaultCollapsed:true,radios:false,spacedAccordionItems:true},defaultValues:{billingDetails:who}}).mount('#pe');
   }
 
   $('f').addEventListener('submit',function(e){
