@@ -334,7 +334,7 @@ body.locked{overflow:hidden}
     var go=$('go');go.disabled=true;go.textContent='Getting your price...';
     function reset(){go.disabled=false;go.textContent='Get my price'}
     var post=function(path,body){return fetch(API+path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json()})};
-    post('/api/quote',{yard:yard(),pickup:chosen.pickup,dropoff:yard()?null:chosen.dropoff,vehicle:vehicle,notes:$('notes').value.trim(),name:name,phone:phone,email:email})
+    post('/api/quote',{yard:yard(),pickup:chosen.pickup,dropoff:yard()?null:chosen.dropoff,vehicle:vehicle,notes:$('notes').value.trim(),name:name,phone:phone,email:email,test:(location.search.match(/[?&]t=([\w-]+)/)||[])[1]})
     .then(function(q){
       if(q.ok)return Promise.all([post('/api/checkout',{token:q.token}),loadStripe()]).then(function(r){
         reset();
