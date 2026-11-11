@@ -87,7 +87,7 @@ input:focus,textarea:focus{border-color:var(--accent);outline:none}
 .wrow.on{border-color:var(--accent);color:var(--accent)}
 .wrow.on svg{fill:var(--accent)}
 /* same thin outline on the Apple Pay button as Google's own */
-.wal::before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:50px;border:1px solid #747775;border-radius:10px;pointer-events:none}
+.wal.apple::before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:50px;border:1px solid #747775;border-radius:10px;pointer-events:none}
 .or{display:flex;align-items:center;gap:.8rem;color:var(--ink-2);font-size:.9rem;margin:.9rem 0 .7rem}
 .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
 body.locked{overflow:hidden}
@@ -300,7 +300,7 @@ body.locked{overflow:hidden}
     }
     function pickWallet(w){
       sel=w;rows.forEach(function(r){r.classList.toggle('on',r.getAttribute('data-w')===w)});
-      if(w){try{pe.collapse()}catch(e){}slot.classList.remove('probe');mk([w]);b.hidden=true;$('err2').hidden=true}
+      if(w){try{pe.collapse()}catch(e){}slot.classList.remove('probe');slot.classList.toggle('apple',w==='applePay');mk([w]);b.hidden=true;$('err2').hidden=true}
       else{slot.classList.add('probe');b.hidden=false}
     }
     rows.forEach(function(r){r.hidden=true;r.classList.remove('on');r.onclick=function(){pickWallet(r.getAttribute('data-w'))}});
