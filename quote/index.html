@@ -78,7 +78,7 @@ input:focus,textarea:focus{border-color:var(--accent);outline:none}
 .sheet-card{position:relative;width:100%;max-width:520px;max-height:92dvh;overflow:auto;background:var(--surface);border:1.5px solid var(--line);border-bottom:0;border-radius:16px 16px 0 0;padding:1.3rem 1.2rem calc(1.2rem + env(safe-area-inset-bottom,0px))}
 @media(min-width:640px){.sheet{align-items:center}.sheet-card{border-bottom:1.5px solid var(--line);border-radius:16px}}
 .sheet-x{position:absolute;top:.5rem;right:.6rem;width:44px;height:44px;border:0;background:none;color:var(--ink-2);font-size:2rem;line-height:1;cursor:pointer}
-#pe{min-height:90px;margin:.2rem 0 1rem}
+#pe{min-height:58px;margin:.2rem 0 1rem}
 #storeNote{margin:0 0 1rem}
 #payarea{position:relative;transition:height .18s ease}
 #payarea.loading{overflow:hidden}
@@ -279,7 +279,7 @@ body.locked{overflow:hidden}
     $('sheet').hidden=false;document.body.classList.add('locked');
     // Skeleton rows hold the exact space of the payment options until they have all loaded, so nothing jumps.
     // The sizes are remembered from the last time this device opened the sheet.
-    var area=$('payarea'), skel=$('skel'), last={n:2,w:116,p:90}, waiting=2;
+    var area=$('payarea'), skel=$('skel'), last={n:2,w:116,p:62}, waiting=2;
     try{var sv=JSON.parse(localStorage.getItem('aq_sk'));if(sv&&sv.p>0)last=sv}catch(e){}
     var html='<div style="height:'+(last.w||0)+'px;overflow:hidden">';for(var i=0;i<last.n;i++)html+='<div class="sk" style="height:50px;margin:2px 0 12px"></div>';html+='</div>';
     if(last.n)html+='<p class="or"><span>or</span></p>';
