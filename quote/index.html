@@ -33,7 +33,8 @@ header img{height:44px;width:auto}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:inherit;font-weight:700;font-size:1rem;line-height:1;padding:.9rem 1.25rem;border-radius:var(--radius);border:1.5px solid transparent;cursor:pointer;transition:background-color .15s,border-color .15s}
 .btn-accent{background:var(--accent);color:var(--on-accent)}
 .btn-accent:hover{background:var(--accent-hover)}
-.btn-accent[disabled]{opacity:.6;cursor:default}
+.btn-accent[disabled]{opacity:.4;cursor:default}
+.btn-accent[disabled]:hover{background:var(--accent)}
 .btn-outline{border-color:var(--line);background:var(--surface);color:var(--ink)}
 .btn-outline:hover{border-color:var(--ink-2)}
 .btn-lg{font-size:1.15rem;padding:1.1rem 1.5rem;width:100%}
@@ -77,6 +78,9 @@ input:focus,textarea:focus{border-color:var(--accent);outline:none}
 @media(min-width:640px){.sheet{align-items:center}.sheet-card{border-bottom:1.5px solid var(--line);border-radius:16px}}
 .sheet-x{position:absolute;top:.5rem;right:.6rem;width:44px;height:44px;border:0;background:none;color:var(--ink-2);font-size:2rem;line-height:1;cursor:pointer}
 #pe{min-height:90px;margin:.2rem 0 1rem}
+#ece{margin:.2rem 0 0}
+.or{display:flex;align-items:center;gap:.8rem;color:var(--ink-2);font-size:.9rem;margin:.9rem 0 .7rem}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
 body.locked{overflow:hidden}
 </style>
 </head>
@@ -177,6 +181,8 @@ body.locked{overflow:hidden}
     </dl>
     <p class="route"><b>From:</b> <span id="rFrom"></span><br><b>To:</b> <span id="rTo"></span></p>
     <p class="hint" id="storeNote" hidden>Storage at our yard is $20 a day, billed when you pick the vehicle up. It is not in this total.</p>
+    <div id="ece"></div>
+    <p class="or" id="or" hidden><span>or</span></p>
     <div id="pe"></div>
     <p class="err" id="err2" role="alert" hidden></p>
     <button class="btn btn-accent btn-lg" id="pay" type="button">Pay</button>
@@ -236,7 +242,7 @@ body.locked{overflow:hidden}
   function loadStripe(){return stripeJs||(stripeJs=new Promise(function(ok,no){var s=document.createElement('script');s.src='https://js.stripe.com/endive/stripe.js';s.onload=ok;s.onerror=function(){stripeJs=null;no()};document.head.appendChild(s)}))}
 
   function fail(el,msg){el.textContent=msg;el.hidden=false}
-  function closeSheet(){$('sheet').hidden=true;document.body.classList.remove('locked');$('pe').innerHTML='';elements=null}
+  function closeSheet(){$('sheet').hidden=true;document.body.classList.remove('locked');$('pe').innerHTML='';$('ece').innerHTML='';elements=null}
   $('sheetX').addEventListener('click',closeSheet);
   $('sheet').addEventListener('click',function(e){if(e.target===$('sheet'))closeSheet()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('sheet').hidden)closeSheet()});
@@ -249,13 +255,28 @@ body.locked{overflow:hidden}
     $('milesAmt').textContent=money(q.mileage);
     $('rFrom').textContent=q.pickup;$('rTo').textContent=q.yard?'Our yard, 25400 SW Grahams Ferry Rd, Sherwood':q.drop;
     $('storeNote').hidden=!q.yard;$('err2').hidden=true;
-    var b=$('pay');b.disabled=false;b.textContent='Pay '+money(q.total);
+    var b=$('pay');b.disabled=true;b.textContent='Pay '+money(q.total); // stays dim until a payment option is picked
     stripe=Stripe(pay.pk);
     elements=stripe.elements({clientSecret:pay.clientSecret,
       fonts:[{cssSrc:'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap'}],
       appearance:{theme:'night',variables:{colorPrimary:'#ffb400',colorBackground:'#0a0e15',colorText:'#e9edf2',colorDanger:'#ff8a7a',fontFamily:'Barlow, system-ui, sans-serif',borderRadius:'10px'}}});
     $('sheet').hidden=false;document.body.classList.add('locked');
-    elements.create('payment',{layout:{type:'accordion',defaultCollapsed:true,radios:'never',spacedAccordionItems:true},paymentMethodOrder:['apple_pay','google_pay','card'],defaultValues:{billingDetails:who}}).mount('#pe');
+    var pe=elements.create('payment',{layout:{type:'accordion',defaultCollapsed:true,radios:'never',spacedAccordionItems:true},paymentMethodOrder:['apple_pay','google_pay','card'],defaultValues:{billingDetails:who}});
+    pe.on('change',function(e){b.disabled=!!e.collapsed||!(e.value&&e.value.type)});
+    pe.mount('#pe');
+    // Apple Pay and Google Pay as one-tap buttons on top; tapping one pays right away
+    $('or').hidden=true;
+    var ece=elements.create('expressCheckout',{buttonHeight:50,paymentMethods:{applePay:'always',googlePay:'always',link:'never',amazonPay:'never',klarna:'never',paypal:'never'}});
+    ece.on('ready',function(e){$('or').hidden=!e.availablePaymentMethods});
+    ece.on('confirm',function(){
+      var err=$('err2');err.hidden=true;
+      stripe.confirmPayment({elements:elements,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}}).then(function(r){
+        var st=r.paymentIntent&&r.paymentIntent.status;
+        if(!r.error&&(st==='succeeded'||st==='processing')){closeSheet();show('paid');return}
+        fail(err,(r.error&&r.error.message)||'The payment did not go through. Try again or call (971) 329-0201.');
+      });
+    });
+    ece.mount('#ece');
   }
 
   $('f').addEventListener('submit',function(e){
