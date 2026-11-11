@@ -35,6 +35,7 @@ header img{height:44px;width:auto}
 .btn-accent:hover{background:var(--accent-hover)}
 .btn-accent[disabled]{opacity:.4;cursor:default}
 .btn-accent[disabled]:hover{background:var(--accent)}
+.btn-accent.dim,.btn-accent.dim:hover{opacity:.4;background:var(--accent);cursor:default}
 .btn-outline{border-color:var(--line);background:var(--surface);color:var(--ink)}
 .btn-outline:hover{border-color:var(--ink-2)}
 .btn-lg{font-size:1.15rem;padding:1.1rem 1.5rem;width:100%}
@@ -198,7 +199,7 @@ body.locked{overflow:hidden}
   function show(id){sections.forEach(function(s){$(s).hidden=s!==id});window.scrollTo(0,0)}
   if(/[?&]paid=1/.test(location.search)&&!/redirect_status=(failed|canceled)/.test(location.search)){show('paid');return}
 
-  var chosen={pickup:null,dropoff:null}, quote=null, stripe=null, elements=null, who=null;
+  var chosen={pickup:null,dropoff:null}, quote=null, stripe=null, elements=null, who=null, picked=false;
   var yard=function(){return document.querySelector('input[name=dest]:checked').value==='yard'};
   var money=function(c){return '$'+(c/100).toLocaleString('en-US')};
   function uuid(){return (crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2))}
@@ -255,14 +256,14 @@ body.locked{overflow:hidden}
     $('milesAmt').textContent=money(q.mileage);
     $('rFrom').textContent=q.pickup;$('rTo').textContent=q.yard?'Our yard, 25400 SW Grahams Ferry Rd, Sherwood':q.drop;
     $('storeNote').hidden=!q.yard;$('err2').hidden=true;
-    var b=$('pay');b.disabled=true;b.textContent='Pay '+money(q.total); // stays dim until a payment option is picked
+    var b=$('pay');b.disabled=false;picked=false;b.classList.add('dim');b.textContent='Pay '+money(q.total); // stays dim until a payment option is picked
     stripe=Stripe(pay.pk);
     elements=stripe.elements({clientSecret:pay.clientSecret,
       fonts:[{cssSrc:'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap'}],
       appearance:{theme:'night',variables:{colorPrimary:'#ffb400',colorBackground:'#0a0e15',colorText:'#e9edf2',colorDanger:'#ff8a7a',fontFamily:'Barlow, system-ui, sans-serif',borderRadius:'10px'}}});
     $('sheet').hidden=false;document.body.classList.add('locked');
     var pe=elements.create('payment',{layout:{type:'accordion',defaultCollapsed:true,radios:'never',spacedAccordionItems:true},paymentMethodOrder:['apple_pay','google_pay','card'],defaultValues:{billingDetails:who}});
-    pe.on('change',function(e){b.disabled=!!e.collapsed||!(e.value&&e.value.type)});
+    pe.on('change',function(e){picked=!e.collapsed&&!!(e.value&&e.value.type);b.classList.toggle('dim',!picked)});
     pe.mount('#pe');
     // Apple Pay and Google Pay as one-tap buttons on top; tapping one pays right away
     $('or').hidden=true;
@@ -309,7 +310,10 @@ body.locked{overflow:hidden}
 
   $('pay').addEventListener('click',function(){
     if(!elements)return;
-    var b=$('pay'),err=$('err2'),label=b.textContent;err.hidden=true;b.disabled=true;b.textContent='Paying...';
+    var b=$('pay'),err=$('err2'),label=b.textContent;err.hidden=true;
+    // Nothing picked yet: let Stripe check. A saved Link card passes, an empty list does not.
+    if(!picked){elements.submit().then(function(r){if(r.error){fail(err,'Choose how you want to pay first.')}else{picked=true;b.classList.remove('dim');b.click()}});return}
+    b.disabled=true;b.textContent='Paying...';
     stripe.confirmPayment({elements:elements,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}})
     .then(function(r){
       var st=r.paymentIntent&&r.paymentIntent.status;
