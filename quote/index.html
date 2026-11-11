@@ -293,13 +293,13 @@ body.locked{overflow:hidden}
     try{var sv=JSON.parse(localStorage.getItem('aq_sk'));if(sv&&sv.p>0)last=sv}catch(e){}
     var html='';for(var i=0;i<last.n;i++)html+='<div class="sk"></div>';
     if(last.n)html+='<p class="or"><span>or</span></p>';
-    html+='<div style="height:'+last.p+'px;margin:.2rem 0 1rem;overflow:hidden">';for(var j=0;j<Math.max(1,Math.round(last.p/64));j++)html+='<div class="sk"></div>';html+='</div>';
-    skel.innerHTML=html;area.classList.add('loading');area.style.height=skel.offsetHeight+'px';
+    html+='<div style="height:'+last.p+'px;margin:.2rem 0 0;overflow:hidden">';for(var j=0;j<Math.max(1,Math.round(last.p/64));j++)html+='<div class="sk"></div>';html+='</div>';
+    skel.innerHTML=html;area.classList.add('loading');area.style.height=(last.h||skel.offsetHeight)+'px';
     function reveal(){
       if(!area.classList.contains('loading'))return;
       var h0=area.offsetHeight;area.classList.remove('loading');area.style.height='';var h1=area.offsetHeight;
       if(h1!==h0){area.style.height=h0+'px';area.offsetHeight;area.style.height=h1+'px';setTimeout(function(){area.style.height=''},220)}
-      try{localStorage.setItem('aq_sk',JSON.stringify({n:rows.filter(function(r){return !r.hidden}).length,p:$('pe').offsetHeight}))}catch(e){}
+      try{localStorage.setItem('aq_sk',JSON.stringify({n:rows.filter(function(r){return !r.hidden}).length,p:$('pe').offsetHeight,h:h1}))}catch(e){}
     }
     function loaded(){if(--waiting<=0)setTimeout(reveal,60)}
     setTimeout(reveal,7000);
