@@ -267,7 +267,7 @@ body.locked{overflow:hidden}
     pe.mount('#pe');
     // Apple Pay and Google Pay as one-tap buttons on top; tapping one pays right away
     $('or').hidden=true;
-    var ece=elements.create('expressCheckout',{buttonHeight:50,paymentMethods:{applePay:'always',googlePay:'always',link:'never',amazonPay:'never',klarna:'never',paypal:'never'}});
+    var ece=elements.create('expressCheckout',{buttonHeight:50,layout:{maxColumns:2,maxRows:2,overflow:'never'},buttonTheme:{applePay:'white',googlePay:'white'},paymentMethods:{applePay:'always',googlePay:'always',link:'never',amazonPay:'never',klarna:'never',paypal:'never'}});
     ece.on('ready',function(e){$('or').hidden=!e.availablePaymentMethods});
     ece.on('confirm',function(){
       var err=$('err2');err.hidden=true;
