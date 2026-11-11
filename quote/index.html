@@ -79,7 +79,9 @@ input:focus,textarea:focus{border-color:var(--accent);outline:none}
 @media(min-width:640px){.sheet{align-items:center}.sheet-card{border-bottom:1.5px solid var(--line);border-radius:16px}}
 .sheet-x{position:absolute;top:.5rem;right:.6rem;width:44px;height:44px;border:0;background:none;color:var(--ink-2);font-size:2rem;line-height:1;cursor:pointer}
 #pe{min-height:90px;margin:.2rem 0 1rem}
-.wal{margin:.55rem 0 0}
+.wal{margin:.55rem 0 0;position:relative}
+/* same thin outline on the Apple Pay button as Google's own */
+.wal::before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:50px;border:1px solid #747775;border-radius:10px;pointer-events:none}
 .or{display:flex;align-items:center;gap:.8rem;color:var(--ink-2);font-size:.9rem;margin:.9rem 0 .7rem}
 .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
 body.locked{overflow:hidden}
