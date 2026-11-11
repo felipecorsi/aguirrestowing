@@ -106,7 +106,7 @@ body.locked{overflow:hidden}
     <h1>Get a tow price</h1>
     <p class="lede">Flat $170, plus $5 a mile from pickup to drop-off. Type the details, see the price, pay, and we roll.</p>
 
-    <form id="f" novalidate autocomplete="off">
+    <form id="f" novalidate>
       <div>
         <div class="lab" id="whereLab">Where is it going?</div>
         <div class="seg" role="radiogroup" aria-labelledby="whereLab">
@@ -118,13 +118,13 @@ body.locked{overflow:hidden}
 
       <div class="ac" data-field="pickup">
         <label for="pickup">Pick up address</label>
-        <input id="pickup" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pickup-l" placeholder="Start typing the address" enterkeyhint="next" required>
+        <input id="pickup" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="pickup-l" placeholder="Start typing the address" enterkeyhint="next" required>
         <ul id="pickup-l" role="listbox" hidden></ul>
       </div>
 
       <div class="ac" data-field="dropoff" id="dropWrap">
         <label for="dropoff">Drop off address</label>
-        <input id="dropoff" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="dropoff-l" placeholder="Start typing the address" enterkeyhint="next">
+        <input id="dropoff" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="dropoff-l" placeholder="Start typing the address" enterkeyhint="next">
         <ul id="dropoff-l" role="listbox" hidden></ul>
       </div>
 
@@ -135,17 +135,17 @@ body.locked{overflow:hidden}
 
       <div>
         <label for="name">Your name</label>
-        <input id="name" type="text" autocomplete="name" maxlength="60" required>
+        <input id="name" name="name" type="text" autocomplete="name" maxlength="60" required>
       </div>
 
       <div>
         <label for="phone">Phone</label>
-        <input id="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" maxlength="20" required>
+        <input id="phone" name="tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" maxlength="20" required>
       </div>
 
       <div>
         <label for="email">Email</label>
-        <input id="email" type="email" autocomplete="email" inputmode="email" placeholder="For your receipt" maxlength="120" required>
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="For your receipt" maxlength="120" required>
       </div>
 
       <div>
@@ -267,7 +267,7 @@ body.locked{overflow:hidden}
     pe.mount('#pe');
     // Apple Pay and Google Pay as one-tap buttons on top; tapping one pays right away
     $('or').hidden=true;
-    var ece=elements.create('expressCheckout',{buttonHeight:50,layout:{maxColumns:2,maxRows:2,overflow:'never'},buttonTheme:{applePay:'white',googlePay:'white'},paymentMethods:{applePay:'always',googlePay:'always',link:'never',amazonPay:'never',klarna:'never',paypal:'never'}});
+    var ece=elements.create('expressCheckout',{buttonHeight:50,layout:{maxColumns:2,overflow:'never'},buttonTheme:{applePay:'white',googlePay:'white'},paymentMethods:{applePay:'always',googlePay:'always',link:'never',amazonPay:'never',klarna:'never',paypal:'never'}});
     ece.on('ready',function(e){$('or').hidden=!e.availablePaymentMethods});
     ece.on('confirm',function(){
       var err=$('err2');err.hidden=true;
