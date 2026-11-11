@@ -79,7 +79,13 @@ input:focus,textarea:focus{border-color:var(--accent);outline:none}
 @media(min-width:640px){.sheet{align-items:center}.sheet-card{border-bottom:1.5px solid var(--line);border-radius:16px}}
 .sheet-x{position:absolute;top:.5rem;right:.6rem;width:44px;height:44px;border:0;background:none;color:var(--ink-2);font-size:2rem;line-height:1;cursor:pointer}
 #pe{min-height:90px;margin:.2rem 0 1rem}
-.wal{margin:.55rem 0 0;position:relative}
+.wal{margin:0 0 .6rem;position:relative}
+.wal.probe{height:0;margin:0;overflow:hidden}
+/* Apple Pay and Google Pay rows, drawn to match Stripe's own rows below them */
+.wrow{display:flex;align-items:center;gap:1.6rem;width:100%;height:54px;padding:0 1.05rem;margin:0 0 .5rem;background:#0a0e15;border:1px solid #1f2735;border-radius:10px;color:#c9cfd8;font:600 .875rem var(--font-body);text-align:left;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.45)}
+.wrow svg{width:18px;height:18px;fill:#a7afbb;flex:none}
+.wrow.on{border-color:var(--accent);color:var(--accent)}
+.wrow.on svg{fill:var(--accent)}
 /* same thin outline on the Apple Pay button as Google's own */
 .wal::before{content:"";position:absolute;z-index:1;top:0;left:0;right:0;height:50px;border:1px solid #747775;border-radius:10px;pointer-events:none}
 .or{display:flex;align-items:center;gap:.8rem;color:var(--ink-2);font-size:.9rem;margin:.9rem 0 .7rem}
@@ -184,10 +190,14 @@ body.locked{overflow:hidden}
     </dl>
     <p class="route"><b>From:</b> <span id="rFrom"></span><br><b>To:</b> <span id="rTo"></span></p>
     <p class="hint" id="storeNote" hidden>Storage at our yard is $20 a day, billed when you pick the vehicle up. It is not in this total.</p>
-    <div class="wal" id="eceA" hidden></div>
+    <div id="wrows" hidden>
+      <button type="button" class="wrow" data-w="applePay" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>Apple Pay</span></button>
+      <button type="button" class="wrow" data-w="googlePay" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg><span>Google Pay</span></button>
+    </div>
     <p class="or" id="or" hidden><span>or</span></p>
     <div id="pe"></div>
     <p class="err" id="err2" role="alert" hidden></p>
+    <div class="wal probe" id="eceA"></div>
     <button class="btn btn-accent btn-lg" id="pay" type="button">Pay</button>
     <p class="hint" style="text-align:center">Secure payment by Stripe. We never see your card number.</p>
   </div>
@@ -245,7 +255,7 @@ body.locked{overflow:hidden}
   function loadStripe(){return stripeJs||(stripeJs=new Promise(function(ok,no){var s=document.createElement('script');s.src='https://js.stripe.com/endive/stripe.js';s.onload=ok;s.onerror=function(){stripeJs=null;no()};document.head.appendChild(s)}))}
 
   function fail(el,msg){el.textContent=msg;el.hidden=false}
-  function closeSheet(){$('sheet').hidden=true;document.body.classList.remove('locked');$('pe').innerHTML='';$('eceA').innerHTML='';$('eceA').hidden=true;elements=null}
+  function closeSheet(){$('sheet').hidden=true;document.body.classList.remove('locked');$('pe').innerHTML='';$('eceA').innerHTML='';$('pay').hidden=false;elements=null}
   $('sheetX').addEventListener('click',closeSheet);
   $('sheet').addEventListener('click',function(e){if(e.target===$('sheet'))closeSheet()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('sheet').hidden)closeSheet()});
@@ -266,21 +276,35 @@ body.locked{overflow:hidden}
       appearance:look});
     $('sheet').hidden=false;document.body.classList.add('locked');
     var pe=elements.create('payment',{layout:{type:'accordion',defaultCollapsed:true,radios:'never',spacedAccordionItems:true},paymentMethodOrder:['apple_pay','google_pay','card'],defaultValues:{billingDetails:who}});
-    pe.on('change',function(e){picked=!!e.complete;b.classList.toggle('dim',!picked)}); // Pay lights up when the card details are complete
+    pe.on('change',function(e){if(!e.collapsed&&sel)pickWallet(null);picked=!!e.complete;b.classList.toggle('dim',!picked)}); // Pay lights up when the details are complete
     pe.mount('#pe');
     // Apple Pay and Google Pay: one full-width button each, same size and outline; tapping one pays right away
     $('or').hidden=true;
-    var x=elements.create('expressCheckout',{buttonHeight:50,layout:{maxColumns:1,overflow:'never'},buttonTheme:{applePay:'black',googlePay:'black'},buttonType:{applePay:'plain',googlePay:'plain'},paymentMethods:{applePay:'always',googlePay:'always',link:'never',amazonPay:'never',klarna:'never',paypal:'never'}});
-    x.on('ready',function(e){var on=!!e.availablePaymentMethods;$('eceA').hidden=!on;$('or').hidden=!on});
-    x.on('confirm',function(){
-      var err=$('err2');err.hidden=true;
-      stripe.confirmPayment({elements:elements,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}}).then(function(r){
-        var st=r.paymentIntent&&r.paymentIntent.status;
-        if(!r.error&&(st==='succeeded'||st==='processing')){closeSheet();show('paid');return}
-        fail(err,(r.error&&r.error.message)||'The payment did not go through. Try again or call (971) 329-0201.');
+    var slot=$('eceA'), ex=null, sel=null, rows=Array.prototype.slice.call(document.querySelectorAll('.wrow'));
+    // The official wallet button. First mounted out of sight to learn which wallets this device has,
+    // then shown in place of the Pay button when the customer picks the Apple Pay or Google Pay row.
+    function mk(list,probe){
+      if(ex){try{ex.destroy()}catch(e){}}
+      var m={applePay:'never',googlePay:'never',link:'never',amazonPay:'never',klarna:'never',paypal:'never'};list.forEach(function(k){m[k]='always'});
+      ex=elements.create('expressCheckout',{buttonHeight:50,layout:{maxColumns:1,overflow:'never'},buttonTheme:{applePay:'black',googlePay:'black'},buttonType:{applePay:'plain',googlePay:'plain'},paymentMethods:m});
+      if(probe)ex.on('ready',function(e){var a=e.availablePaymentMethods||{},any=false;rows.forEach(function(r){var on=!!a[r.getAttribute('data-w')];r.hidden=!on;any=any||on});$('wrows').hidden=!any;$('or').hidden=!any});
+      ex.on('confirm',function(){
+        var err=$('err2');err.hidden=true;
+        stripe.confirmPayment({elements:elements,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}}).then(function(r){
+          var st=r.paymentIntent&&r.paymentIntent.status;
+          if(!r.error&&(st==='succeeded'||st==='processing')){closeSheet();show('paid');return}
+          fail(err,(r.error&&r.error.message)||'The payment did not go through. Try again or call (971) 329-0201.');
+        });
       });
-    });
-    x.mount('#eceA');
+      ex.mount('#eceA');
+    }
+    function pickWallet(w){
+      sel=w;rows.forEach(function(r){r.classList.toggle('on',r.getAttribute('data-w')===w)});
+      if(w){try{pe.collapse()}catch(e){}slot.classList.remove('probe');mk([w]);b.hidden=true;$('err2').hidden=true}
+      else{slot.classList.add('probe');b.hidden=false}
+    }
+    rows.forEach(function(r){r.hidden=true;r.classList.remove('on');r.onclick=function(){pickWallet(r.getAttribute('data-w'))}});
+    $('wrows').hidden=true;slot.classList.add('probe');b.hidden=false;mk(['applePay','googlePay'],true);
   }
 
   $('f').addEventListener('submit',function(e){
@@ -315,7 +339,7 @@ body.locked{overflow:hidden}
     if(!elements)return;
     var b=$('pay'),err=$('err2'),label=b.textContent;err.hidden=true;
     // Still dim: let Stripe check the card fields and mark what is missing.
-    if(!picked){elements.submit().then(function(r){if(r.error){fail(err,'Fill in your card details, or use Apple Pay or Google Pay above.')}else{picked=true;b.classList.remove('dim');b.click()}});return}
+    if(!picked){elements.submit().then(function(r){if(r.error){fail(err,'Choose how you want to pay and fill in the details.')}else{picked=true;b.classList.remove('dim');b.click()}});return}
     b.disabled=true;b.textContent='Paying...';
     stripe.confirmPayment({elements:elements,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}})
     .then(function(r){
