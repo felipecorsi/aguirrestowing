@@ -79,7 +79,8 @@ input:focus,textarea:focus{border-color:var(--accent);outline:none}
 @media(min-width:640px){.sheet{align-items:center}.sheet-card{border-bottom:1.5px solid var(--line);border-radius:16px}}
 .sheet-x{position:absolute;top:.5rem;right:.6rem;width:44px;height:44px;border:0;background:none;color:var(--ink-2);font-size:2rem;line-height:1;cursor:pointer}
 #pe{min-height:90px;margin:.2rem 0 1rem}
-#ece{margin:.2rem 0 0}
+.wal{margin:.55rem 0 0;border-radius:10px;overflow:hidden}
+#eceA{border:1px solid #747775}
 .or{display:flex;align-items:center;gap:.8rem;color:var(--ink-2);font-size:.9rem;margin:.9rem 0 .7rem}
 .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
 body.locked{overflow:hidden}
@@ -182,7 +183,8 @@ body.locked{overflow:hidden}
     </dl>
     <p class="route"><b>From:</b> <span id="rFrom"></span><br><b>To:</b> <span id="rTo"></span></p>
     <p class="hint" id="storeNote" hidden>Storage at our yard is $20 a day, billed when you pick the vehicle up. It is not in this total.</p>
-    <div id="ece"></div>
+    <div class="wal" id="eceA" hidden></div>
+    <div class="wal" id="eceG" hidden></div>
     <p class="or" id="or" hidden><span>or</span></p>
     <div id="pe"></div>
     <p class="err" id="err2" role="alert" hidden></p>
@@ -243,7 +245,7 @@ body.locked{overflow:hidden}
   function loadStripe(){return stripeJs||(stripeJs=new Promise(function(ok,no){var s=document.createElement('script');s.src='https://js.stripe.com/endive/stripe.js';s.onload=ok;s.onerror=function(){stripeJs=null;no()};document.head.appendChild(s)}))}
 
   function fail(el,msg){el.textContent=msg;el.hidden=false}
-  function closeSheet(){$('sheet').hidden=true;document.body.classList.remove('locked');$('pe').innerHTML='';$('ece').innerHTML='';elements=null}
+  function closeSheet(){$('sheet').hidden=true;document.body.classList.remove('locked');$('pe').innerHTML='';$('eceA').innerHTML='';$('eceG').innerHTML='';$('eceA').hidden=$('eceG').hidden=true;elements=null}
   $('sheetX').addEventListener('click',closeSheet);
   $('sheet').addEventListener('click',function(e){if(e.target===$('sheet'))closeSheet()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('sheet').hidden)closeSheet()});
@@ -258,26 +260,32 @@ body.locked{overflow:hidden}
     $('storeNote').hidden=!q.yard;$('err2').hidden=true;
     var b=$('pay');b.disabled=false;picked=false;b.classList.add('dim');b.textContent='Pay '+money(q.total); // stays dim until a payment option is picked
     stripe=Stripe(pay.pk);
+    var look={theme:'night',variables:{colorPrimary:'#ffb400',colorBackground:'#0a0e15',colorText:'#e9edf2',colorDanger:'#ff8a7a',fontFamily:'Barlow, system-ui, sans-serif',borderRadius:'10px'}};
     elements=stripe.elements({clientSecret:pay.clientSecret,
       fonts:[{cssSrc:'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap'}],
-      appearance:{theme:'night',variables:{colorPrimary:'#ffb400',colorBackground:'#0a0e15',colorText:'#e9edf2',colorDanger:'#ff8a7a',fontFamily:'Barlow, system-ui, sans-serif',borderRadius:'10px'}}});
+      appearance:look});
     $('sheet').hidden=false;document.body.classList.add('locked');
     var pe=elements.create('payment',{layout:{type:'accordion',defaultCollapsed:true,radios:'never',spacedAccordionItems:true},paymentMethodOrder:['apple_pay','google_pay','card'],defaultValues:{billingDetails:who}});
-    pe.on('change',function(e){picked=!e.collapsed&&!!(e.value&&e.value.type);b.classList.toggle('dim',!picked)});
+    pe.on('change',function(e){picked=!!e.complete;b.classList.toggle('dim',!picked)}); // Pay lights up when the card details are complete
     pe.mount('#pe');
-    // Apple Pay and Google Pay as one-tap buttons on top; tapping one pays right away
+    // Apple Pay and Google Pay: one full-width button each, same size and outline; tapping one pays right away
     $('or').hidden=true;
-    var ece=elements.create('expressCheckout',{buttonHeight:50,layout:{maxColumns:1,overflow:'never'},buttonTheme:{applePay:'black',googlePay:'black'},paymentMethods:{applePay:'always',googlePay:'always',link:'never',amazonPay:'never',klarna:'never',paypal:'never'}});
-    ece.on('ready',function(e){$('or').hidden=!e.availablePaymentMethods});
-    ece.on('confirm',function(){
-      var err=$('err2');err.hidden=true;
-      stripe.confirmPayment({elements:elements,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}}).then(function(r){
-        var st=r.paymentIntent&&r.paymentIntent.status;
-        if(!r.error&&(st==='succeeded'||st==='processing')){closeSheet();show('paid');return}
-        fail(err,(r.error&&r.error.message)||'The payment did not go through. Try again or call (971) 329-0201.');
+    function wallet(box,which){
+      var el=stripe.elements({clientSecret:pay.clientSecret,appearance:look});
+      var pm={applePay:'never',googlePay:'never',link:'never',amazonPay:'never',klarna:'never',paypal:'never'};pm[which]='always';
+      var x=el.create('expressCheckout',{buttonHeight:50,layout:{maxColumns:1,overflow:'never'},buttonTheme:{applePay:'black',googlePay:'black'},buttonType:{applePay:'plain',googlePay:'plain'},paymentMethods:pm});
+      x.on('ready',function(e){var on=!!(e.availablePaymentMethods&&e.availablePaymentMethods[which]);$(box).hidden=!on;if(on)$('or').hidden=false});
+      x.on('confirm',function(){
+        var err=$('err2');err.hidden=true;
+        stripe.confirmPayment({elements:el,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}}).then(function(r){
+          var st=r.paymentIntent&&r.paymentIntent.status;
+          if(!r.error&&(st==='succeeded'||st==='processing')){closeSheet();show('paid');return}
+          fail(err,(r.error&&r.error.message)||'The payment did not go through. Try again or call (971) 329-0201.');
+        });
       });
-    });
-    ece.mount('#ece');
+      x.mount('#'+box);
+    }
+    wallet('eceA','applePay');wallet('eceG','googlePay');
   }
 
   $('f').addEventListener('submit',function(e){
@@ -311,8 +319,8 @@ body.locked{overflow:hidden}
   $('pay').addEventListener('click',function(){
     if(!elements)return;
     var b=$('pay'),err=$('err2'),label=b.textContent;err.hidden=true;
-    // Nothing picked yet: let Stripe check. A saved Link card passes, an empty list does not.
-    if(!picked){elements.submit().then(function(r){if(r.error){fail(err,'Choose how you want to pay first.')}else{picked=true;b.classList.remove('dim');b.click()}});return}
+    // Still dim: let Stripe check the card fields and mark what is missing.
+    if(!picked){elements.submit().then(function(r){if(r.error){fail(err,'Fill in your card details, or use Apple Pay or Google Pay above.')}else{picked=true;b.classList.remove('dim');b.click()}});return}
     b.disabled=true;b.textContent='Paying...';
     stripe.confirmPayment({elements:elements,redirect:'if_required',confirmParams:{return_url:location.origin+'/quote/?paid=1'}})
     .then(function(r){
