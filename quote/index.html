@@ -291,7 +291,16 @@ body.locked{overflow:hidden}
       if(h1!==h0){area.style.height=h0+'px';area.offsetHeight;area.style.height=h1+'px';setTimeout(function(){area.style.height=''},220)}
       try{localStorage.setItem('aq_sk',JSON.stringify({n:Math.round(box.offsetHeight/60),w:box.offsetHeight,p:$('pe').offsetHeight,h:h1}))}catch(e){}
     }
-    function loaded(){if(--waiting<=0)setTimeout(reveal,60)}
+    // Both parts report ready a moment before they reach full size, so wait until their heights stop changing.
+    function loaded(){
+      if(--waiting>0)return;
+      var prev=-1,tries=0;
+      (function settle(){
+        var bx=$('eceA'),h=bx.offsetHeight+$('pe').offsetHeight,small=bx.classList.contains('has')&&bx.offsetHeight<40;
+        if(tries++<40&&(small||h!==prev)){prev=h;setTimeout(settle,90);return}
+        reveal();
+      })();
+    }
     setTimeout(reveal,7000);
     var pe=elements.create('payment',{layout:{type:'accordion',defaultCollapsed:true,radios:'never',spacedAccordionItems:true},paymentMethodOrder:['apple_pay','google_pay','card'],defaultValues:{billingDetails:who}});
     pe.on('change',function(e){picked=!!e.complete;b.classList.toggle('dim',!picked)}); // Pay lights up when the details are complete
